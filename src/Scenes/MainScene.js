@@ -136,6 +136,64 @@ class MainScene extends Phaser.Scene {
     });
   }
 
+  // create Frustum Culling for performance
+  analyzeFrutumCulling() {
+    // checks in the array of enemies to delete them
+    for (var i = 0; i < this.enemies.getChildren().length; i++) {
+      var enemy = this.enemies.getChildren()[i];
+
+      enemy.update();
+
+      if (
+        enemy.x < -enemy.displayWidth ||
+        enemy.x > this.game.config.width + enemy.displayWidth ||
+        enemy.y < -enemy.displayHeight * 4 ||
+        enemy.y > this.game.config.height + enemy.displayHeight
+      ) {
+        if (enemy) {
+          if (enemy.onDestroy !== undefined) {
+            enemy.onDestroy();
+          }
+          enemy.destroy();
+        }
+      }
+    }
+
+    // Check for enemy lasers
+    for (var i = 0; i < this.enemyLasers.getChildren().length; i++) {
+      var laser = this.enemyLasers.getChildren()[i];
+      laser.update();
+
+      if (
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
+      ) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
+
+    // Check for player lasers
+    for (var i = 0; i < this.playerLasers.getChildren().length; i++) {
+      var laser = this.playerLasers.getChildren()[i];
+      laser.update();
+
+      if (
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
+      ) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
+  }
+
   update() {
     this.player.update();
 
@@ -167,6 +225,8 @@ class MainScene extends Phaser.Scene {
 
       enemy.update();
     }
+
+    this.analyzeFrutumCulling();
   }
 
   // In order to spawn the chase ship
