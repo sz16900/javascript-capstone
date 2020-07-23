@@ -1,0 +1,57 @@
+{
+  "name": "shooter-game-capstone",
+  "version": "1.0.0",
+  "description": "This project consist on building a video game using JavaScript and the game engine Phaser to demonstrate mastery of Javascript. webpack, ES6 classes, testing with Jest, project building, and live deployment.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start:dev": "webpack-dev-server",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sz16900/shooter-game-capstone.git"
+  },
+  "keywords": [
+    "phaser3",
+    "javascript",
+    "css",
+    "html",
+    "jest"
+  ],
+  "author": "Seth Zea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sz16900/shooter-game-capstone/issues"
+  },
+  "homepage": "https://github.com/sz16900/shooter-game-capstone#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "css-loader": "^3.6.0",
+    "eslint": "^7.2.0",
+    "exports-loader": "^1.0.0",
+    "file-loader": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.17.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^6.0.3",
+    "phaser": "^3.24.1"
+  }
+}
