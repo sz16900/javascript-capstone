@@ -3,7 +3,7 @@ const copyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/game.js',
     'production-dependencies': ['phaser'],
   },
 

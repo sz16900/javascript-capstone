@@ -2,7 +2,7 @@
   "name": "shooter-game-capstone",
   "version": "1.0.0",
   "description": "This project consist on building a video game using JavaScript and the game engine Phaser to demonstrate mastery of Javascript. webpack, ES6 classes, testing with Jest, project building, and live deployment.",
-  "main": "webpack.config.js",
+  "main": "game.js",
   "scripts": {
     "start:dev": "webpack-dev-server",
     "dev": "webpack --mode development",
