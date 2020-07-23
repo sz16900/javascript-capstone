@@ -1,5 +1,6 @@
 import 'phaser';
 import Player from '../Entities/Player';
+import GunShip from '../Entities/GunShip';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -88,6 +89,26 @@ class MainScene extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
+
+    // Add Enemy / Groups
+    this.enemies = this.add.group();
+    this.enemyLasers = this.add.group();
+    this.playerLasers = this.add.group();
+
+    // Add a timer / event
+    this.time.addEvent({
+      delay: 1000,
+      callback: function () {
+        var enemy = new GunShip(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0
+        );
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      loop: true,
+    });
   }
 
   update() {
