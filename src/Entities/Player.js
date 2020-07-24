@@ -1,5 +1,6 @@
+import Phaser from 'phaser';
 import Entity from './Entities';
-import PlayerLaser from '../Entities/PlayerLaser';
+import PlayerLaser from './PlayerLaser';
 
 class Player extends Entity {
   constructor(scene, x, y, key) {
@@ -13,6 +14,7 @@ class Player extends Entity {
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
   }
+
   moveUp() {
     this.body.velocity.y = -this.getData('speed');
   }
@@ -33,7 +35,7 @@ class Player extends Entity {
     this.scene.time.addEvent({
       // go to game over scene
       delay: 1000,
-      callback: function () {
+      callback() {
         this.scene.scene.start('SceneGameOver');
       },
       callbackScope: this,
@@ -53,7 +55,7 @@ class Player extends Entity {
         this.setData('timerShootTick', this.getData('timerShootTick') + 1); // every game update, increase timerShootTick by one until we reach the value of timerShootDelay
       } else {
         // when the "manual timer" is triggered:
-        var laser = new PlayerLaser(this.scene, this.x, this.y);
+        const laser = new PlayerLaser(this.scene, this.x, this.y);
         this.scene.playerLasers.add(laser);
 
         this.scene.sfx.laser.play(); // play the laser sound effect

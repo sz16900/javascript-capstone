@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key, type) {
     super(scene, x, y, key);
@@ -26,14 +28,14 @@ class Entity extends Phaser.GameObjects.Sprite {
       this.body.setVelocity(0, 0);
       this.on(
         'animationcomplete',
-        function () {
+        () => {
           if (canDestroy) {
             this.destroy();
           } else {
             this.setVisible(false);
           }
         },
-        this
+        this,
       );
       this.setData('isDead', true);
     }

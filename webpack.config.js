@@ -1,6 +1,7 @@
 const path = require('path');
-const copyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
+
 module.exports = {
   entry: {
     app: './src/game.js',
@@ -25,7 +26,7 @@ module.exports = {
   },
 
   plugins: [
-    new copyWebpackPlugin({
+    new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, 'index.html'),

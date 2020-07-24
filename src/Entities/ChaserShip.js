@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Entity from './Entities';
 
 class ChaserShip extends Entity {
@@ -20,19 +21,19 @@ class ChaserShip extends Entity {
           this.x,
           this.y,
           this.scene.player.x,
-          this.scene.player.y
+          this.scene.player.y,
         ) < 320
       ) {
         this.state = this.states.CHASE;
       }
 
-      if (this.state == this.states.CHASE) {
-        var dx = this.scene.player.x - this.x;
-        var dy = this.scene.player.y - this.y;
+      if (this.state === this.states.CHASE) {
+        const dx = this.scene.player.x - this.x;
+        const dy = this.scene.player.y - this.y;
 
-        var angle = Math.atan2(dy, dx);
+        const angle = Math.atan2(dy, dx);
 
-        var speed = 100;
+        const speed = 100;
         this.body.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed);
 
         if (this.x < this.scene.player.x) {

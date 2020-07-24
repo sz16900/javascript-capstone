@@ -1,5 +1,6 @@
+import Phaser from 'phaser';
 import Entity from './Entities';
-import EnemyLaser from '../Entities/EnemyLaser';
+import EnemyLaser from './EnemyLaser';
 
 class GunShip extends Entity {
   constructor(scene, x, y) {
@@ -9,8 +10,8 @@ class GunShip extends Entity {
     // Create an Event
     this.shootTimer = this.scene.time.addEvent({
       delay: 1000,
-      callback: function () {
-        var laser = new EnemyLaser(this.scene, this.x, this.y);
+      callback() {
+        const laser = new EnemyLaser(this.scene, this.x, this.y);
         laser.setScale(this.scaleX);
         this.scene.enemyLasers.add(laser);
       },

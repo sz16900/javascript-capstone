@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import Entity from './Entities';
 
 class CarrierShip extends Entity {
