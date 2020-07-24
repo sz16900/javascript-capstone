@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import config from '../Config/config';
+import Button from '../Objects/Button';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
 class GameOverScene extends Phaser.Scene {
@@ -21,43 +23,15 @@ class GameOverScene extends Phaser.Scene {
       btnDown: this.sound.add('sndBtnDown'),
     };
 
-    this.btnRestart = this.add.sprite(
-      this.game.config.width * 0.5,
-      this.game.config.height * 0.5,
+    this.gameButton = new Button(
+      this,
+      config.width * 0.5,
+      config.height * 0.5,
+      'sprBtnRestartDown',
+      'sprBtnRestartHover',
       'sprBtnRestart',
-    );
-
-    this.btnRestart.setInteractive();
-
-    this.btnRestart.on(
-      'pointerover',
-      () => {
-        this.btnRestart.setTexture('sprBtnRestartHover'); // set the button texture to sprBtnPlayHover
-        this.sfx.btnOver.play(); // play the button over sound
-      },
-      this,
-    );
-
-    this.btnRestart.on('pointerout', () => {
-      this.setTexture('sprBtnRestart');
-    });
-
-    this.btnRestart.on(
-      'pointerdown',
-      () => {
-        this.btnRestart.setTexture('sprBtnRestartDown');
-        this.sfx.btnDown.play();
-      },
-      this,
-    );
-
-    this.btnRestart.on(
-      'pointerup',
-      () => {
-        this.btnRestart.setTexture('sprBtnRestart');
-        this.scene.start('Main');
-      },
-      this,
+      'Restart',
+      'Main'
     );
 
     this.backgrounds = [];
