@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 
 export default {
   type: Phaser.WEBGL,
-  width: 480,
-  height: 640,
+  width: 800,
+  height: 600,
   backgroundColor: 'black',
   physics: {
     default: 'arcade',

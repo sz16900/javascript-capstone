@@ -3,7 +3,7 @@ import ScrollingBackground from '../Entities/ScrollingBackground';
 
 export default class MainMenuScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'MainMenuScene' });
+    super({ key: 'MainMenu' });
   }
 
   preload() {
