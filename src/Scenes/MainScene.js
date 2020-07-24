@@ -11,8 +11,6 @@ class MainScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('sprBg0', '../assets/sprBg0.png');
-    this.load.image('sprBg1', '../assets/sprBg1.png');
     this.load.spritesheet('sprExplosion', '../assets/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
