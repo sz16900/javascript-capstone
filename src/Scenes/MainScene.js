@@ -3,6 +3,7 @@ import Player from '../Entities/Player';
 import GunShip from '../Entities/GunShip';
 import ChaserShip from '../Entities/ChaserShip';
 import CarrierShip from '../Entities/CarrierShip';
+import ScrollingBackground from '../Entities/ScrollingBackground';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -75,12 +76,20 @@ class MainScene extends Phaser.Scene {
       laser: this.sound.add('sndLaser'),
     };
 
+    // Add the starry background
+    this.backgrounds = [];
+    for (let i = 0; i < 5; i += 1) {
+      // create five scrolling backgrounds
+      let bg = new ScrollingBackground(this, 'sprBg0', i * 10);
+      this.backgrounds.push(bg);
+    }
+
     // Create the Player
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      'sprPlayer',
+      'sprPlayer'
     );
 
     // Create Key Bindings
@@ -89,7 +98,7 @@ class MainScene extends Phaser.Scene {
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE,
+      Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
     // Add Enemy / Groups
@@ -109,21 +118,21 @@ class MainScene extends Phaser.Scene {
           enemy = new GunShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0,
+            0
           );
         } else if (Phaser.Math.Between(0, 10) >= 5) {
           if (this.getEnemiesByType('ChaserShip').length < 5) {
             enemy = new ChaserShip(
               this,
               Phaser.Math.Between(0, this.game.config.width),
-              0,
+              0
             );
           }
         } else {
           enemy = new CarrierShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0,
+            0
           );
         }
 
@@ -144,7 +153,7 @@ class MainScene extends Phaser.Scene {
               enemy.explode(true);
               playerLaser.destroy();
             }
-          },
+          }
         );
 
         // player destroyed upon overlap
@@ -170,10 +179,10 @@ class MainScene extends Phaser.Scene {
       enemy.update();
 
       if (
-        enemy.x < -enemy.displayWidth
-        || enemy.x > this.game.config.width + enemy.displayWidth
-        || enemy.y < -enemy.displayHeight * 4
-        || enemy.y > this.game.config.height + enemy.displayHeight
+        enemy.x < -enemy.displayWidth ||
+        enemy.x > this.game.config.width + enemy.displayWidth ||
+        enemy.y < -enemy.displayHeight * 4 ||
+        enemy.y > this.game.config.height + enemy.displayHeight
       ) {
         if (enemy) {
           if (enemy.onDestroy !== undefined) {
@@ -190,10 +199,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth
-        || laser.x > this.game.config.width + laser.displayWidth
-        || laser.y < -laser.displayHeight * 4
-        || laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -207,10 +216,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth
-        || laser.x > this.game.config.width + laser.displayWidth
-        || laser.y < -laser.displayHeight * 4
-        || laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -241,7 +250,7 @@ class MainScene extends Phaser.Scene {
       } else {
         this.player.setData(
           'timerShootTick',
-          this.player.getData('timerShootDelay') - 1,
+          this.player.getData('timerShootDelay') - 1
         );
         this.player.setData('isShooting', false);
       }
@@ -255,6 +264,11 @@ class MainScene extends Phaser.Scene {
     }
 
     this.analyzeFrutumCulling();
+
+    // Call the backgrund update
+    for (let i = 0; i < this.backgrounds.length; i += 1) {
+      this.backgrounds[i].update();
+    }
   }
 
   // In order to spawn the chase ship
