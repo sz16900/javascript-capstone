@@ -21,6 +21,7 @@ export default class Button extends Phaser.GameObjects.Container {
       'pointerdown',
       function () {
         this.button.setTexture(keyDown);
+        this.scene.sound.play('sndBtnDown');
       }.bind(this)
     );
 
@@ -35,6 +36,7 @@ export default class Button extends Phaser.GameObjects.Container {
       'pointerover',
       function () {
         this.button.setTexture(keyOver);
+        this.scene.sound.play('sndBtnOver');
       }.bind(this)
     );
 
@@ -47,5 +49,8 @@ export default class Button extends Phaser.GameObjects.Container {
     );
 
     this.scene.add.existing(this);
+    console.log(this.scene);
   }
+
+  preload() {}
 }

@@ -82,16 +82,24 @@ export default class PreloaderScene extends Phaser.Scene {
     // load assets needed in our game
 
     // -> Main Menu stuff
-    this.load.image('sprBg0', '../assets/nebulae.png');
-    this.load.image('sprBg1', '../assets/starfield.png');
+    this.load.image('nebulae', '../assets/nebulae.png');
+    this.load.image('starfield', '../assets/starfield.png');
     this.load.image('sprBtnPlay', '../assets/sprBtnPlay.png');
     this.load.image('sprBtnPlayHover', '../assets/sprBtnPlayHover.png');
     this.load.image('sprBtnPlayDown', '../assets/sprBtnPlayDown.png');
     this.load.image('sprBtnRestart', '../assets/sprBtnRestart.png');
     this.load.image('sprBtnRestartHover', '../assets/sprBtnRestartHover.png');
     this.load.image('sprBtnRestartDown', '../assets/sprBtnRestartDown.png');
-    this.load.audio('sndBtnOver', '../assets/sndBtnOver.wav');
-    this.load.audio('sndBtnDown', '../assets/sndBtnDown.wav');
+
+    // Sound
+    this.load.audio('sndBtnOver', '../assets/Text rollover3.wav');
+    this.load.audio(
+      'sndBtnDown',
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
+    );
+    this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
+    this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');
+    this.load.audio('sndPlayerMove', '../assets/rocket_launch.wav');
 
     // -> Main stuff
     this.load.spritesheet('sprExplosion', '../assets/sprExplosion.png', {

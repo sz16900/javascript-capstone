@@ -12,7 +12,7 @@ class GameOverScene extends Phaser.Scene {
     // Add the starry background
     this.backgrounds = [];
     for (let i = 0; i < 2; i += 1) {
-      const keys = ['sprBg1', 'sprBg0'];
+      const keys = ['starfield', 'nebulae'];
       const bg = new ScrollingBackground(this, keys[i]);
       this.backgrounds.push(bg);
     }
@@ -39,7 +39,7 @@ class GameOverScene extends Phaser.Scene {
       'sprBtnRestartDown',
       'sprBtnRestartHover',
       'sprBtnRestart',
-      'Restart',
+      '',
       'Main'
     );
   }

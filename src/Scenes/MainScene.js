@@ -11,6 +11,12 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    // Add music background
+    this.music = this.sound.add('sndBgMain', 1, true);
+    this.music.loop = true;
+    this.music.play();
+    // this.shipSFX = this.sound.add('sndPlayerMove');
+
     //   Create some Animations
     this.anims.create({
       key: 'sprEnemy0',
@@ -52,7 +58,7 @@ class MainScene extends Phaser.Scene {
     // Add the starry background
     this.backgrounds = [];
     for (let i = 0; i < 2; i += 1) {
-      const keys = ['sprBg1', 'sprBg0'];
+      const keys = ['starfield', 'nebulae'];
       const bg = new ScrollingBackground(this, keys[i]);
       this.backgrounds.push(bg);
     }
@@ -208,6 +214,8 @@ class MainScene extends Phaser.Scene {
     if (!this.player.getData('isDead')) {
       this.player.update();
       if (this.keyW.isDown) {
+        // Play engine sound when press up
+        // this.shipSFX.play();
         this.player.moveUp();
       } else if (this.keyS.isDown) {
         this.player.moveDown();
@@ -216,6 +224,9 @@ class MainScene extends Phaser.Scene {
         this.player.moveLeft();
       } else if (this.keyD.isDown) {
         this.player.moveRight();
+      }
+
+      if (this.keyW.isUp) {
       }
 
       if (this.keySpace.isDown) {
