@@ -9,6 +9,15 @@ class GameOverScene extends Phaser.Scene {
   }
 
   create() {
+    // Add the starry background
+    this.backgrounds = [];
+    for (let i = 0; i < 2; i += 1) {
+      const keys = ['sprBg1', 'sprBg0'];
+      const bg = new ScrollingBackground(this, keys[i]);
+      this.backgrounds.push(bg);
+    }
+
+    // Add the text
     this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
@@ -33,17 +42,10 @@ class GameOverScene extends Phaser.Scene {
       'Restart',
       'Main'
     );
-
-    this.backgrounds = [];
-    for (let i = 0; i < 5; i += 1) {
-      const keys = ['sprBg0', 'sprBg1'];
-      const key = keys[Phaser.Math.Between(0, keys.length - 1)];
-      const bg = new ScrollingBackground(this, key, i * 10);
-      this.backgrounds.push(bg);
-    }
   }
 
   update() {
+    // Call the backgrund update
     for (let i = 0; i < this.backgrounds.length; i += 1) {
       this.backgrounds[i].update();
     }
