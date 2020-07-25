@@ -85,18 +85,43 @@ export default class MainMenuScene extends Phaser.Scene {
       }
     );
     this.title.setOrigin(0.5);
-    this.backgrounds = [];
-    for (let i = 0; i < 5; i += 1) {
-      const keys = ['sprBg0', 'sprBg1'];
-      const key = keys[Phaser.Math.Between(0, keys.length - 1)];
-      const bg = new ScrollingBackground(this, key, i * 10);
-      this.backgrounds.push(bg);
-    }
+
+    // clouds
+    this.stars = this.add.tileSprite(
+      0,
+      0,
+      this.game.config.width,
+      this.game.config.height,
+      'sprBg1'
+    );
+
+    this.stars.setOrigin(0, 0);
+    this.stars.setScrollFactor(0);
+
+    this.dunes = this.add.tileSprite(
+      0,
+      0,
+      this.game.config.width,
+      this.game.config.height,
+      'sprBg0'
+    );
+
+    this.dunes.setOrigin(0, 0);
+    this.dunes.setScrollFactor(0);
+    // this.backgrounds = [];
+    // for (let i = 0; i < 5; i += 1) {
+    //   const keys = ['sprBg0', 'sprBg1'];
+    //   const key = keys[Phaser.Math.Between(0, keys.length - 1)];
+    //   const bg = new ScrollingBackground(this, key, i * 10);
+    //   this.backgrounds.push(bg);
+    // }
   }
 
   update() {
-    for (let i = 0; i < this.backgrounds.length; i += 1) {
-      this.backgrounds[i].update();
-    }
+    this.dunes.tilePositionY -= 1;
+    this.stars.tilePositionY -= 1;
+    // for (let i = 0; i < this.backgrounds.length; i += 1) {
+    //   this.backgrounds[i].update();
+    // }
   }
 }

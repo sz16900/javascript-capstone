@@ -82,8 +82,8 @@ export default class PreloaderScene extends Phaser.Scene {
     // load assets needed in our game
 
     // -> Main Menu stuff
-    this.load.image('sprBg0', '../assets/sprBg0.png');
-    this.load.image('sprBg1', '../assets/sprBg1.png');
+    this.load.image('sprBg0', '../assets/nebulae.png');
+    this.load.image('sprBg1', '../assets/starfield.png');
     this.load.image('sprBtnPlay', '../assets/sprBtnPlay.png');
     this.load.image('sprBtnPlayHover', '../assets/sprBtnPlayHover.png');
     this.load.image('sprBtnPlayDown', '../assets/sprBtnPlayDown.png');
