@@ -95,7 +95,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('sndBtnOver', '../assets/Text rollover3.wav');
     this.load.audio(
       'sndBtnDown',
-      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav',
     );
     this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
     this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');
@@ -107,6 +107,10 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 32,
     });
     this.load.spritesheet('sprExplosionPlayer', '../assets/sprExplosion.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+    this.load.spritesheet('sprExplosionLaser', '../assets/Explosion.png', {
       frameWidth: 32,
       frameHeight: 32,
     });

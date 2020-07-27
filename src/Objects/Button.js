@@ -17,40 +17,25 @@ export default class Button extends Phaser.GameObjects.Container {
     this.add(this.button);
     this.add(this.text);
 
-    this.button.on(
-      'pointerdown',
-      function () {
-        this.button.setTexture(keyDown);
-        this.scene.sound.play('sndBtnDown');
-      }.bind(this)
-    );
+    this.button.on('pointerdown', () => {
+      this.button.setTexture(keyDown);
+      this.scene.sound.play('sndBtnDown');
+    });
 
-    this.button.on(
-      'pointerout',
-      function () {
-        this.button.setTexture(keyUp);
-      }.bind(this)
-    );
+    this.button.on('pointerout', () => {
+      this.button.setTexture(keyUp);
+    });
 
-    this.button.on(
-      'pointerover',
-      function () {
-        this.button.setTexture(keyOver);
-        this.scene.sound.play('sndBtnOver');
-      }.bind(this)
-    );
+    this.button.on('pointerover', () => {
+      this.button.setTexture(keyOver);
+      this.scene.sound.play('sndBtnOver');
+    });
 
-    this.button.on(
-      'pointerup',
-      function () {
-        this.button.setTexture(keyUp);
-        this.scene.scene.start(targetScene);
-      }.bind(this)
-    );
+    this.button.on('pointerup', () => {
+      this.button.setTexture(keyUp);
+      this.scene.scene.start(targetScene);
+    });
 
     this.scene.add.existing(this);
-    console.log(this.scene);
   }
-
-  preload() {}
 }

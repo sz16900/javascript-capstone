@@ -26,7 +26,7 @@ export default class MainMenuScene extends Phaser.Scene {
       'sprBtnPlayHover',
       'sprBtnPlay',
       '',
-      'Main'
+      'Main',
     );
 
     // Add the Title
@@ -40,10 +40,8 @@ export default class MainMenuScene extends Phaser.Scene {
         fontStyle: 'bold',
         color: '#ffffff',
         align: 'center',
-      }
+      },
     );
     this.title.setOrigin(0.5);
   }
-
-  update() {}
 }

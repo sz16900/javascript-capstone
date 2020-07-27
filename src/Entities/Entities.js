@@ -13,7 +13,8 @@ class Entity extends Phaser.GameObjects.Sprite {
   explode(canDestroy, explosionType) {
     if (!this.getData('isDead')) {
       // Set the texture to the explosion image, then play the animation
-      this.setTexture(explosionType); // this refers to the same animation key we used when we added this.anims.create previously
+      // this refers to the same animation key we used when we added this.anims.create previously
+      this.setTexture(explosionType);
       this.play(explosionType); // play the animation
 
       // pick a random explosion sound within the array we defined in this.sfx in SceneMain
@@ -36,7 +37,7 @@ class Entity extends Phaser.GameObjects.Sprite {
             this.setVisible(false);
           }
         },
-        this
+        this,
       );
       this.setData('isDead', true);
     }

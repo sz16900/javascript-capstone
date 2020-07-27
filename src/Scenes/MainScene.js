@@ -47,6 +47,13 @@ class MainScene extends Phaser.Scene {
     });
 
     this.anims.create({
+      key: 'sprExplosionLaser',
+      frames: this.anims.generateFrameNumbers('sprExplosionLaser'),
+      frameRate: 20,
+      repeat: 0,
+    });
+
+    this.anims.create({
       key: 'sprPlayer',
       frames: this.anims.generateFrameNumbers('sprPlayer'),
       frameRate: 20,
@@ -77,7 +84,7 @@ class MainScene extends Phaser.Scene {
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      'sprPlayer'
+      'sprPlayer',
     );
     // this resizes the player
     this.player.setScale(1.7);
@@ -88,7 +95,7 @@ class MainScene extends Phaser.Scene {
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
+      Phaser.Input.Keyboard.KeyCodes.SPACE,
     );
 
     // Add Enemy / Groups
@@ -108,21 +115,21 @@ class MainScene extends Phaser.Scene {
           enemy = new GunShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0
+            0,
           );
         } else if (Phaser.Math.Between(0, 10) >= 5) {
           if (this.getEnemiesByType('ChaserShip').length < 5) {
             enemy = new ChaserShip(
               this,
               Phaser.Math.Between(0, this.game.config.width),
-              0
+              0,
             );
           }
         } else {
           enemy = new CarrierShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0
+            0,
           );
         }
 
@@ -143,7 +150,35 @@ class MainScene extends Phaser.Scene {
               enemy.explode(true, 'sprExplosion');
               playerLaser.destroy();
             }
-          }
+          },
+        );
+
+        // player destroyed upon collision with laser
+        this.physics.add.collider(
+          this.enemyLasers,
+          this.player,
+          (enemyLasers, player) => {
+            if (player) {
+              if (player.onDestroy !== undefined) {
+                player.onDestroy();
+              }
+              player.explode(false, 'sprExplosionPlayer');
+              player.onDestroy();
+              enemyLasers.destroy();
+            }
+          },
+        );
+
+        // laser destroyed upon collision with laser
+        this.physics.add.collider(
+          this.enemyLasers,
+          this.playerLasers,
+          (enemyLaser, playerLaser) => {
+            if (playerLaser) {
+              playerLaser.explode(false, 'sprExplosionLaser');
+              enemyLaser.destroy();
+            }
+          },
         );
 
         // player destroyed upon overlap
@@ -169,10 +204,10 @@ class MainScene extends Phaser.Scene {
       enemy.update();
 
       if (
-        enemy.x < -enemy.displayWidth ||
-        enemy.x > this.game.config.width + enemy.displayWidth ||
-        enemy.y < -enemy.displayHeight * 4 ||
-        enemy.y > this.game.config.height + enemy.displayHeight
+        enemy.x < -enemy.displayWidth
+        || enemy.x > this.game.config.width + enemy.displayWidth
+        || enemy.y < -enemy.displayHeight * 4
+        || enemy.y > this.game.config.height + enemy.displayHeight
       ) {
         if (enemy) {
           if (enemy.onDestroy !== undefined) {
@@ -189,10 +224,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth ||
-        laser.x > this.game.config.width + laser.displayWidth ||
-        laser.y < -laser.displayHeight * 4 ||
-        laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -206,10 +241,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth ||
-        laser.x > this.game.config.width + laser.displayWidth ||
-        laser.y < -laser.displayHeight * 4 ||
-        laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -237,15 +272,12 @@ class MainScene extends Phaser.Scene {
         this.player.moveRight();
       }
 
-      if (this.keyW.isUp) {
-      }
-
       if (this.keySpace.isDown) {
         this.player.setData('isShooting', true);
       } else {
         this.player.setData(
           'timerShootTick',
-          this.player.getData('timerShootDelay') - 1
+          this.player.getData('timerShootDelay') - 1,
         );
         this.player.setData('isShooting', false);
       }
