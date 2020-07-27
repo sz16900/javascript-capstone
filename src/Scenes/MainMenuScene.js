@@ -10,6 +10,7 @@ export default class MainMenuScene extends Phaser.Scene {
   create() {
     // Add music background
     this.music = this.sound.add('sndBgMenu');
+    this.music.loop = true;
     this.music.play();
 
     // Add static background

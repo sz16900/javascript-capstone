@@ -13,7 +13,7 @@ class MainScene extends Phaser.Scene {
   create() {
     // Add music background
     this.music = this.sound.add('sndBgMain', 1, true);
-    this.music.loop = true;
+    this.music.lop = true;
     this.music.play();
     // this.shipSFX = this.sound.add('sndPlayerMove');
 
@@ -40,6 +40,13 @@ class MainScene extends Phaser.Scene {
     });
 
     this.anims.create({
+      key: 'sprExplosionPlayer',
+      frames: this.anims.generateFrameNumbers('sprExplosionPlayer'),
+      frameRate: 20,
+      repeat: 0,
+    });
+
+    this.anims.create({
       key: 'sprPlayer',
       frames: this.anims.generateFrameNumbers('sprPlayer'),
       frameRate: 20,
@@ -51,6 +58,8 @@ class MainScene extends Phaser.Scene {
       explosions: [
         this.sound.add('sndExplode0'),
         this.sound.add('sndExplode1'),
+        this.sound.add('sndExplode2'),
+        this.sound.add('sndExplode3'),
       ],
       laser: this.sound.add('sndLaser'),
     };
@@ -70,6 +79,8 @@ class MainScene extends Phaser.Scene {
       this.game.config.height * 0.5,
       'sprPlayer'
     );
+    // this resizes the player
+    this.player.setScale(1.7);
 
     // Create Key Bindings
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
@@ -129,7 +140,7 @@ class MainScene extends Phaser.Scene {
               if (enemy.onDestroy !== undefined) {
                 enemy.onDestroy();
               }
-              enemy.explode(true);
+              enemy.explode(true, 'sprExplosion');
               playerLaser.destroy();
             }
           }
@@ -138,9 +149,9 @@ class MainScene extends Phaser.Scene {
         // player destroyed upon overlap
         this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
           if (!player.getData('isDead') && !enemy.getData('isDead')) {
-            player.explode(false);
+            player.explode(false, 'sprExplosionPlayer');
             player.onDestroy();
-            enemy.explode(true);
+            enemy.explode(true, 'sprExplosion');
           }
         });
       },
