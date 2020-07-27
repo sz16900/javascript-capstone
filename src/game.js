@@ -9,6 +9,7 @@ import GameOverScene from './Scenes/GameOverScene';
 class Game extends Phaser.Game {
   constructor() {
     super(config);
+    this.globals = { score: 0, gameID: '' };
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
     this.scene.add('MainMenu', MainMenuScene);

@@ -77,7 +77,7 @@ export default class PreloaderScene extends Phaser.Scene {
       this.ready();
     });
 
-    this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
+    this.timedEvent = this.time.delayedCall(6000, this.ready, [], this);
 
     // load assets needed in our game
 
@@ -95,7 +95,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('sndBtnOver', '../assets/Text rollover3.wav');
     this.load.audio(
       'sndBtnDown',
-      '../assets/Menu Effect Time Stretch and Pitch Shift.wav',
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
     );
     this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
     this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');
