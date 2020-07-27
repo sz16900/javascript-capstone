@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
+import api from '../Utils/apiHandler';
 
 export default class MainMenuScene extends Phaser.Scene {
   constructor() {
@@ -8,6 +9,8 @@ export default class MainMenuScene extends Phaser.Scene {
   }
 
   create() {
+    // api testing
+    console.log(api.getScore());
     // Add music background
     this.music = this.sound.add('sndBgMenu');
     this.music.loop = true;
@@ -33,7 +36,7 @@ export default class MainMenuScene extends Phaser.Scene {
     this.title = this.add.text(
       this.game.config.width * 0.5,
       128,
-      'SPACE SHOOTER',
+      'SPACETIME SHOOTER GAME',
       {
         fontFamily: 'monospace',
         fontSize: 48,

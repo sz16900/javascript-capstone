@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
 import ScrollingBackground from '../Entities/ScrollingBackground';
+import api from '../Utils/apiHandler';
 
 class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -42,6 +43,9 @@ class GameOverScene extends Phaser.Scene {
       '',
       'Main'
     );
+
+    // Add score to api
+    api.setScore(this.sys.game.globals.score);
   }
 
   update() {
