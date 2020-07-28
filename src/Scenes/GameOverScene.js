@@ -41,7 +41,7 @@ class GameOverScene extends Phaser.Scene {
       'sprBtnRestartHover',
       'sprBtnRestart',
       '',
-      'Main'
+      'Main',
     );
 
     // Add score to api

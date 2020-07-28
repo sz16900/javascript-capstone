@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import config from '../Config/config';
 import api from '../Utils/apiHandler';
 
 export default class MainMenuScene extends Phaser.Scene {

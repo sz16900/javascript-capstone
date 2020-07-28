@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'arcade';
+  src: url('ARCADE_N.TTF') format('truetype');
+}
+
 .inputwrap {
   position: absolute;
   top: 480px;
@@ -6,4 +11,30 @@
 
 .hidden {
   display: none;
+}
+
+.inputwrap textarea {
+  resize: none;
+  border-bottom: 1px dashed #989895;
+  border-width: 20px;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  color: #4f4f4f;
+  background: none;
+  outline: none;
+  position: relative;
+  font: 16px 'arcade', 'SeanRegular', Courier New, Courier New, Courier6,
+    monospace;
+  letter-spacing: 1px;
+  width: 6em;
+  left: 44px;
+}
+
+.inputwrap textarea:focus {
+  border-bottom: 1px dashed #000;
+  -webkit-transition: border 0.3s ease-in;
+  -moz-transition: border 0.3s ease-in;
+  -o-transition: border 0.3s ease-in;
+  transition: border 0.3s ease-in;
 }

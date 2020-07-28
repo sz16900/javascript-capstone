@@ -13,23 +13,28 @@ export default class GameOverScene extends Phaser.Scene {
         this.add
           .bitmapText(100, 10, 'arcade', 'RANK  NAME   SCORE')
           .setTint(0xffffff);
-        data.result.sort((a, b) =>
-          a.score > b.score ? -1 : b.score > a.score ? 1 : 0
-        );
-        console.log(data);
-        for (let i = 1; i < 6; i++) {
+        data.result.sort((a, b) => {
+          if (a.score > b.score) {
+            return -1;
+          } if (b.score > a.score) {
+            return 1;
+          }
+          return 0;
+        });
+        for (let i = 1; i < 6; i += 1) {
           this.add
             .bitmapText(
               100,
               60 + 50 * i,
               'arcade',
-              ` ${i}    ${data.result[i].user}     ${data.result[i].score}`
+              ` ${i}    ${data.result[i].user}     ${data.result[i].score}`,
             )
             .setTint(0xffffff);
         }
       })
       .catch((e) => {
-        console.log(e);
+        const input = document.getElementById('space-shooter-game');
+        input.innerText = e;
       });
 
     this.add
@@ -39,7 +44,7 @@ export default class GameOverScene extends Phaser.Scene {
 
     // Key Bindings
     this.keyENTER = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
+      Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
   }
 

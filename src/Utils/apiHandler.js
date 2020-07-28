@@ -1,12 +1,10 @@
 const baseUrl =
   'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
-
 //   I dont know where else to store it
 const apiKey = 'Rvu659tXzZpvrPD1ApIN';
+const url = `${baseUrl}games/${apiKey}/scores/`;
 
-async function setScore(playerName = '', gameScore = 0) {
-  const url = `${baseUrl}games/${apiKey}/scores/`;
-
+const setScore = async (playerName = '', gameScore = 0) => {
   const dataToApi = {
     user: playerName,
     score: gameScore,
@@ -24,10 +22,11 @@ async function setScore(playerName = '', gameScore = 0) {
       body: JSON.stringify(dataToApi),
     });
     const data = await response.json();
+    return data;
   } catch (e) {
-    console.log(e);
+    return e;
   }
-}
+};
 
 const getScore = async () => {
   const response = await fetch(`${baseUrl}games/${apiKey}/scores/`, {

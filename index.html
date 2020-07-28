@@ -9,13 +9,14 @@
   <body>
     <div id="space-shooter-game">
       <div class="inputwrap">
-        <input
+        <textarea
           type="text"
+          minlength="3"
+          maxlength="3"
           id="playername"
           class="hidden"
           value=""
-          placeholder="Enter Name"
-        />
+        ></textarea>
       </div>
       <script src="production-dependencies.app.bundle.js"></script>
       <script src="app.bundle.js"></script>
