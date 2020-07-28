@@ -36,6 +36,9 @@
   transition: border 0.3s ease-in;
 }
 
+/* Spinning wheel courtesy of:
+https://dev.to/wangonya/displaying-a-css-spinner-on-ajax-calls-with-fetch-api-4ndo */
+
 #spinner {
   width: 80px;
   height: 80px;

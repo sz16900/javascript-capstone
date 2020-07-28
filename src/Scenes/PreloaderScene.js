@@ -20,7 +20,7 @@ export default class PreloaderScene extends Phaser.Scene {
     const { height } = this.cameras.main;
 
     // add logo image
-    this.add.image(width / 2, height / 2, 'logo').setScale(1.5);
+    this.add.image(120, 100, 'logo').setScale(0.5);
 
     const loadingText = this.make.text({
       x: width / 2,
@@ -98,7 +98,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('sndBtnOver', '../assets/Text rollover3.wav');
     this.load.audio(
       'sndBtnDown',
-      '../assets/Menu Effect Time Stretch and Pitch Shift.wav',
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
     );
     this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
     this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');

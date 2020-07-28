@@ -27,7 +27,7 @@ export default class MainMenuScene extends Phaser.Scene {
       .setTint(0xffffff)
       .setOrigin(0.5);
 
-    this.add
+    this.pressEnter = this.add
       .bitmapText(
         this.game.config.width * 0.5,
         428,
@@ -37,6 +37,16 @@ export default class MainMenuScene extends Phaser.Scene {
       )
       .setTint(0xffffff)
       .setOrigin(0.5);
+
+    this.tweens.add({
+      targets: [this.pressEnter],
+      scaleX: 0.9,
+      scaleY: 0.9,
+      ease: 'Elastic', // 'Cubic', 'Elastic', 'Bounce', 'Back'
+      duration: 4000,
+      repeat: -1,
+      yoyo: true,
+    });
 
     // Key Bindings
     this.keyENTER = this.input.keyboard.addKey(
