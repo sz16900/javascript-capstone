@@ -15,11 +15,7 @@
 
 .inputwrap textarea {
   resize: none;
-  border-bottom: 1px dashed #989895;
-  border-width: 20px;
-  border-right: none;
-  border-left: none;
-  border-top: none;
+  border: none;
   color: #4f4f4f;
   background: none;
   outline: none;
@@ -27,8 +23,9 @@
   font: 16px 'arcade', 'SeanRegular', Courier New, Courier New, Courier6,
     monospace;
   letter-spacing: 1px;
+  font-size: 2em;
   width: 6em;
-  left: 44px;
+  left: 32px;
 }
 
 .inputwrap textarea:focus {
