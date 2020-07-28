@@ -10,9 +10,6 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    // add logo image
-    this.add.image(400, 200, 'logo');
-
     // display progress bar
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
@@ -21,6 +18,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
+
+    // add logo image
+    this.add.image(width / 2, height / 2, 'logo').setScale(1.5);
+
     const loadingText = this.make.text({
       x: width / 2,
       y: height / 2 - 50,

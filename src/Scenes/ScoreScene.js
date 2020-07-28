@@ -51,7 +51,9 @@ export default class GameOverScene extends Phaser.Scene {
     if (this.keyENTER.isDown) {
       console.log('Here');
       const info = document.getElementById('playername').value;
-      api.setScore(info, this.sys.game.globals.score);
+      if (this.sys.game.globals.score >= 500) {
+        api.setScore(info, this.sys.game.globals.score);
+      }
       this.element.classList.add('hidden');
       this.scene.start('LeaderBoard');
     }
