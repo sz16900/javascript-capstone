@@ -5,6 +5,7 @@ import PreloaderScene from './Scenes/PreloaderScene';
 import MainMenuScene from './Scenes/MainMenuScene';
 import MainScene from './Scenes/MainScene';
 import GameOverScene from './Scenes/GameOverScene';
+import LeaderBoardScene from './Scenes/LeaderBoardScene';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -15,6 +16,7 @@ class Game extends Phaser.Game {
     this.scene.add('MainMenu', MainMenuScene);
     this.scene.add('Main', MainScene);
     this.scene.add('GameOver', GameOverScene);
+    this.scene.add('LeaderBoard', LeaderBoardScene);
     // This thing should be called maybe when the play buttin is triggered
     this.scene.start('Boot');
   }

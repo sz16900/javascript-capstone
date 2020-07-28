@@ -81,6 +81,8 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // load assets needed in our game
 
+    this.load.bitmapFont('arcade', 'assets/arcade.png', 'assets/arcade.xml');
+
     // -> Main Menu stuff
     this.load.image('nebulae', '../assets/nebulae.png');
     this.load.image('starfield', '../assets/starfield.png');

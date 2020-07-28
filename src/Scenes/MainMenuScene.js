@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
-import api from '../Utils/apiHandler';
 
 export default class MainMenuScene extends Phaser.Scene {
   constructor() {
@@ -9,8 +8,6 @@ export default class MainMenuScene extends Phaser.Scene {
   }
 
   create() {
-    // api testing
-    console.log(api.getScore());
     // Add music background
     this.music = this.sound.add('sndBgMenu');
     this.music.loop = true;
@@ -33,18 +30,27 @@ export default class MainMenuScene extends Phaser.Scene {
     );
 
     // Add the Title
-    this.title = this.add.text(
-      this.game.config.width * 0.5,
-      128,
-      'SPACETIME SHOOTER GAME',
-      {
-        fontFamily: 'monospace',
-        fontSize: 48,
-        fontStyle: 'bold',
-        color: '#ffffff',
-        align: 'center',
-      }
-    );
+    // this.title = this.add.text(
+    //   this.game.config.width * 0.5,
+    //   128,
+    //   'SPACETIME SHOOTER GAME',
+    //   {
+    //     fontFamily: 'monospace',
+    //     fontSize: 48,
+    //     fontStyle: 'bold',
+    //     color: '#ffffff',
+    //     align: 'center',
+    //   }
+    // );
+    // this.title.setOrigin(0.5);
+    this.title = this.add
+      .bitmapText(
+        this.game.config.width * 0.5,
+        128,
+        'arcade',
+        'SPACETIME SHOOTER GAME'
+      )
+      .setTint(0xffffff);
     this.title.setOrigin(0.5);
   }
 }

@@ -4,37 +4,12 @@ const baseUrl =
 //   I dont know where else to store it
 const apiKey = 'Rvu659tXzZpvrPD1ApIN';
 
-// function storeGameId() {
-//   this.sys.game.globals.gameID = apiKey;
-// }
-
-// async function registerGame() {
-//   try {
-//     const response = await fetch(`${baseUrl}games/`, {
-//       method: 'POST',
-//       mode: 'cors',
-//       cache: 'no-cache',
-//       credentials: 'same-origin',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({
-//         name: 'StarShip Shooting Game',
-//       }),
-//     });
-//     const data = await response.json();
-//     return Promise.resolve(gameID(data));
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
-
-async function setScore(scoreValue = 0) {
+async function setScore(playerName = '', gameScore = 0) {
   const url = `${baseUrl}games/${apiKey}/scores/`;
 
-  const scoreSet = {
+  const dataToApi = {
     user: 'Seth Zea',
-    score: scoreValue,
+    score: gameScore,
   };
 
   try {
@@ -46,20 +21,25 @@ async function setScore(scoreValue = 0) {
         'Content-Type': 'application/json',
         'Access-Control-Request-Method': 'POST',
       },
-      body: JSON.stringify(scoreSet),
+      body: JSON.stringify(dataToApi),
     });
     const data = await response.json();
-    console.log(data.result);
   } catch (e) {
     console.log(e);
   }
 }
 
-async function getScore() {
-  const response = await fetch(`${baseUrl}games/${apiKey}/scores/`);
-  const result = await response.json();
-  return result;
-}
+const getScore = async () => {
+  const response = await fetch(`${baseUrl}games/${apiKey}/scores/`, {
+    mode: 'cors',
+  });
+  if (!response.ok) {
+    throw new Error('Something went wrong with your query.');
+  } else {
+    const result = await response.json();
+    return result;
+  }
+};
 
 const api = {
   setScore,
