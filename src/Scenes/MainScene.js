@@ -28,14 +28,8 @@ class MainScene extends Phaser.Scene {
     // Create the Score on the top right corner
     this.score = this.sys.game.globals.score;
     this.leaderBoard = this.add
-      .text(this.game.config.width * 0.9, 30, `Score: ${this.score}`, {
-        fontFamily: 'monospace',
-        fontSize: 24,
-        fontStyle: 'Bold',
-        color: 'white',
-        align: 'center',
-      })
-      .setOrigin(1);
+      .bitmapText(10, 10, 'arcade', `Score: ${this.score}`, 14)
+      .setTint(0xffffff);
 
     //   Create some Animations
     this.anims.create({

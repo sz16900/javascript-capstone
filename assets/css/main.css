@@ -1,0 +1,9 @@
+.inputwrap {
+  position: absolute;
+  top: 480px;
+  left: 320px;
+}
+
+.hidden {
+  display: none;
+}

@@ -39,7 +39,8 @@ class Player extends Entity {
         // Stops the music
         this.scene.music.stop();
         // Start the next scene
-        this.scene.scene.start('LeaderBoard');
+        this.scene.scene.start('Score');
+        // this.scene.scene.start('LeaderBoard');
         // this.scene.scene.start('GameOver');
       },
       callbackScope: this,

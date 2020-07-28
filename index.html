@@ -4,9 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
-    <script src="production-dependencies.app.bundle.js"></script>
-    <script src="app.bundle.js"></script>
+    <div id="space-shooter-game">
+      <div class="inputwrap">
+        <input
+          type="text"
+          id="playername"
+          class="hidden"
+          value=""
+          placeholder="Enter Name"
+        />
+      </div>
+      <script src="production-dependencies.app.bundle.js"></script>
+      <script src="app.bundle.js"></script>
+    </div>
   </body>
 </html>

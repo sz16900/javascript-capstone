@@ -8,7 +8,7 @@ async function setScore(playerName = '', gameScore = 0) {
   const url = `${baseUrl}games/${apiKey}/scores/`;
 
   const dataToApi = {
-    user: 'Seth Zea',
+    user: playerName,
     score: gameScore,
   };
 
