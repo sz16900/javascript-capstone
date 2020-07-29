@@ -40,10 +40,10 @@ export default class MainMenuScene extends Phaser.Scene {
 
     this.tweens.add({
       targets: [this.pressEnter],
-      scaleX: 0.9,
-      scaleY: 0.9,
+      scaleX: 0.99,
+      scaleY: 0.99,
       ease: 'Elastic', // 'Cubic', 'Elastic', 'Bounce', 'Back'
-      duration: 4000,
+      duration: 2000,
       repeat: -1,
       yoyo: true,
     });

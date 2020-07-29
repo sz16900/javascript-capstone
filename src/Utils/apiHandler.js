@@ -36,6 +36,7 @@ const getScore = async () => {
     throw new Error('Something went wrong with your query.');
   } else {
     const result = await response.json();
+    console.log(result);
     return result;
   }
 };
