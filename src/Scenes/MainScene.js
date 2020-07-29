@@ -15,7 +15,6 @@ class MainScene extends Phaser.Scene {
     this.music = this.sound.add('sndBgMain', 1, true);
     this.music.lop = true;
     this.music.play();
-    // this.shipSFX = this.sound.add('sndPlayerMove');
 
     // Add the starry background
     this.backgrounds = [];
@@ -112,7 +111,6 @@ class MainScene extends Phaser.Scene {
     // Add a timer / event
     this.time.addEvent({
       delay: 1000,
-      // the anonymous function?
       callback() {
         // This anonymous function spawns the enemies depending...
         let enemy = null;
@@ -192,7 +190,7 @@ class MainScene extends Phaser.Scene {
           }
         );
 
-        // player destroyed upon overlap
+        // player destroyed upon overlap with enemy ship
         this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
           if (!player.getData('isDead') && !enemy.getData('isDead')) {
             player.explode(false, 'sprExplosionPlayer');
@@ -272,8 +270,6 @@ class MainScene extends Phaser.Scene {
     if (!this.player.getData('isDead')) {
       this.player.update();
       if (this.keyW.isDown) {
-        // Play engine sound when press up
-        // this.shipSFX.play();
         this.player.moveUp();
       } else if (this.keyS.isDown) {
         this.player.moveDown();
@@ -302,6 +298,7 @@ class MainScene extends Phaser.Scene {
       enemy.update();
     }
 
+    // call FrutumCulling
     this.analyzeFrutumCulling();
 
     // Call the backgrund update
@@ -310,7 +307,7 @@ class MainScene extends Phaser.Scene {
     }
   }
 
-  // In order to spawn the chase ship
+  // Push enemies into array
   getEnemiesByType(type) {
     const arr = [];
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {

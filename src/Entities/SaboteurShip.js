@@ -4,7 +4,7 @@ import Entity from './Entities';
 class SaboteurShip extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, 'saboteur', 'SaboteurShip');
-    this.body.velocity.y = Phaser.Math.Between(50, 100);
+    this.body.velocity.y = Phaser.Math.Between(100, 200);
     this.play('saboteur');
   }
 }
