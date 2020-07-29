@@ -1,12 +1,12 @@
 import Phaser from 'phaser';
 import Entity from './Entities';
 
-class CarrierShip extends Entity {
+class SaboteurShip extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'sprEnemy2', 'CarrierShip');
+    super(scene, x, y, 'saboteur', 'SaboteurShip');
     this.body.velocity.y = Phaser.Math.Between(50, 100);
-    this.play('sprEnemy2');
+    this.play('saboteur');
   }
 }
 
-export default CarrierShip;
+export default SaboteurShip;

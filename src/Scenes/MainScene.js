@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import Player from '../Entities/Player';
 import UfoShip from '../Entities/UfoShip';
 import TurtleShip from '../Entities/TurtleShip';
-import CarrierShip from '../Entities/CarrierShip';
+import SaboteurShip from '../Entities/SaboteurShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
 class MainScene extends Phaser.Scene {
@@ -40,8 +40,8 @@ class MainScene extends Phaser.Scene {
     });
 
     this.anims.create({
-      key: 'sprEnemy2',
-      frames: this.anims.generateFrameNumbers('sprEnemy2'),
+      key: 'saboteur',
+      frames: this.anims.generateFrameNumbers('saboteur'),
       frameRate: 20,
       repeat: -1,
     });
@@ -132,7 +132,7 @@ class MainScene extends Phaser.Scene {
             );
           }
         } else {
-          enemy = new CarrierShip(
+          enemy = new SaboteurShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0

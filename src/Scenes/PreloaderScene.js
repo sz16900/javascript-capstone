@@ -105,7 +105,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.audio('sndExplode3', '../assets/explosion4.wav');
     this.load.audio('sndLaser', '../assets/weaponfire7.wav');
 
-    // -> Main stuff
+    // Load Sprites for anims
     this.load.spritesheet('sprExplosion', '../assets/EXPLOSION_ANIMATION.png', {
       frameWidth: 32,
       frameHeight: 32,
@@ -123,7 +123,7 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 32,
     });
     this.load.image('turtle', '../assets/Turtle.png');
-    this.load.spritesheet('sprEnemy2', '../assets/Saboteur.png', {
+    this.load.spritesheet('saboteur', '../assets/Saboteur.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
