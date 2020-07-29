@@ -85,7 +85,11 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(6000, this.ready, [], this);
 
     // Load Fonts
-    this.load.bitmapFont('arcade', 'assets/arcade.png', 'assets/arcade.xml');
+    this.load.bitmapFont(
+      'arcade',
+      '../assets/arcade.png',
+      '../assets/arcade.xml'
+    );
 
     // -> Main Images
     this.load.image('nebulae', '../assets/nebulae.png');
