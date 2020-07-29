@@ -6,7 +6,7 @@ class Player extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'Player');
     // Player Speed
-    this.setData('speed', 100);
+    this.setData('speed', 135);
     // Player's Animation
     this.play('sprPlayer');
     // The ability to shoot
@@ -40,8 +40,6 @@ class Player extends Entity {
         this.scene.music.stop();
         // Start the next scene
         this.scene.scene.start('Score');
-        // this.scene.scene.start('LeaderBoard');
-        // this.scene.scene.start('GameOver');
       },
       callbackScope: this,
       loop: false,
