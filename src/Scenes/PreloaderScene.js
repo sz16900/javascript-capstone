@@ -90,11 +90,12 @@ export default class PreloaderScene extends Phaser.Scene {
     // -> Main Images
     this.load.image('nebulae', '../assets/nebulae.png');
     this.load.image('starfield', '../assets/starfield.png');
+    this.load.image('pause', '../assets/pause.png');
 
     // Load SFX and other
     this.load.audio(
       'sndBtnDown',
-      '../assets/Menu Effect Time Stretch and Pitch Shift.wav',
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
     );
     this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
     this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');

@@ -108,6 +108,9 @@ class MainScene extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
+    // this.keyEsc = this.input.keyboard.addKey(
+    //   Phaser.Input.Keyboard.KeyCodes.ESC
+    // );
 
     // Add Enemy / Groups
     this.enemies = this.add.group();
@@ -214,6 +217,13 @@ class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
+
+    // this.input.keyboard('keydown-P', (e) => {
+    //   // . Change Scene here
+    //   console.log('aaa');
+    //   this.scene.launch('Pause');
+    //   this.scene.pause();
+    // });
   }
 
   // create Frustum Culling for performance
@@ -316,6 +326,13 @@ class MainScene extends Phaser.Scene {
     for (let i = 0; i < this.backgrounds.length; i += 1) {
       this.backgrounds[i].update();
     }
+
+    // if (this.keyEsc.isDown) {
+    //   // if (this.keyEsc.isUp) {
+    //   this.scene.pause('Main');
+    //   this.scene.start('Pause');
+    //   // }
+    // }
   }
 
   // Push enemies into array
