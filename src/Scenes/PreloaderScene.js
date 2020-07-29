@@ -95,6 +95,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('nebulae', '../assets/nebulae.png');
     this.load.image('starfield', '../assets/starfield.png');
     this.load.image('pause', '../assets/pause.png');
+    this.load.image('kbCommands', '../assets/keyboardCommands.png');
 
     // Load SFX and other
     this.load.audio(
