@@ -5,7 +5,6 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     app: './src/game.js',
-    'production-dependencies': ['phaser'],
   },
 
   output: {
@@ -13,17 +12,17 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
   },
 
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: 'production-dependencies',
-          chunks: 'initial',
-          minChunks: 2,
-        },
-      },
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       commons: {
+  //         name: 'production-dependencies',
+  //         chunks: 'initial',
+  //         minChunks: 2,
+  //       },
+  //     },
+  //   },
+  // },
 
   plugins: [
     new CopyWebpackPlugin({
