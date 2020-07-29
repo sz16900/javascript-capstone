@@ -1,9 +1,9 @@
 import Phaser from 'phaser';
 import Entity from './Entities';
 
-class ChaserShip extends Entity {
+class TurtleShip extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'sprEnemy1', 'ChaserShip');
+    super(scene, x, y, 'turtle', 'TurtleShip');
 
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
@@ -21,7 +21,7 @@ class ChaserShip extends Entity {
           this.x,
           this.y,
           this.scene.player.x,
-          this.scene.player.y,
+          this.scene.player.y
         ) < 320
       ) {
         this.state = this.states.CHASE;
@@ -46,4 +46,4 @@ class ChaserShip extends Entity {
   }
 }
 
-export default ChaserShip;
+export default TurtleShip;

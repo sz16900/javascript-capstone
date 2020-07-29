@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../Entities/Player';
-import GunShip from '../Entities/GunShip';
-import ChaserShip from '../Entities/ChaserShip';
+import UfoShip from '../Entities/UfoShip';
+import TurtleShip from '../Entities/TurtleShip';
 import CarrierShip from '../Entities/CarrierShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
@@ -33,8 +33,8 @@ class MainScene extends Phaser.Scene {
 
     //   Create some Animations
     this.anims.create({
-      key: 'sprEnemy0',
-      frames: this.anims.generateFrameNumbers('sprEnemy0'),
+      key: 'ufo',
+      frames: this.anims.generateFrameNumbers('ufo'),
       frameRate: 20,
       repeat: -1,
     });
@@ -90,7 +90,7 @@ class MainScene extends Phaser.Scene {
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      'sprPlayer',
+      'sprPlayer'
     );
     // this resizes the player
     this.player.setScale(1.7);
@@ -101,7 +101,7 @@ class MainScene extends Phaser.Scene {
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE,
+      Phaser.Input.Keyboard.KeyCodes.SPACE
     );
 
     // Add Enemy / Groups
@@ -118,24 +118,24 @@ class MainScene extends Phaser.Scene {
         let enemy = null;
 
         if (Phaser.Math.Between(0, 10) >= 3) {
-          enemy = new GunShip(
+          enemy = new UfoShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0,
+            0
           );
         } else if (Phaser.Math.Between(0, 10) >= 5) {
-          if (this.getEnemiesByType('ChaserShip').length < 5) {
-            enemy = new ChaserShip(
+          if (this.getEnemiesByType('TurtleShip').length < 5) {
+            enemy = new TurtleShip(
               this,
               Phaser.Math.Between(0, this.game.config.width),
-              0,
+              0
             );
           }
         } else {
           enemy = new CarrierShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0,
+            0
           );
         }
 
@@ -158,7 +158,7 @@ class MainScene extends Phaser.Scene {
               enemy.explode(true, 'sprExplosion');
               playerLaser.destroy();
             }
-          },
+          }
         );
 
         // player destroyed upon collision with laser
@@ -175,7 +175,7 @@ class MainScene extends Phaser.Scene {
               enemyLasers.destroy();
               this.sys.game.globals.score = this.score;
             }
-          },
+          }
         );
 
         // laser destroyed upon collision with laser
@@ -189,7 +189,7 @@ class MainScene extends Phaser.Scene {
               playerLaser.explode(false, 'sprExplosionLaser');
               enemyLaser.destroy();
             }
-          },
+          }
         );
 
         // player destroyed upon overlap
@@ -216,10 +216,10 @@ class MainScene extends Phaser.Scene {
       enemy.update();
 
       if (
-        enemy.x < -enemy.displayWidth
-        || enemy.x > this.game.config.width + enemy.displayWidth
-        || enemy.y < -enemy.displayHeight * 4
-        || enemy.y > this.game.config.height + enemy.displayHeight
+        enemy.x < -enemy.displayWidth ||
+        enemy.x > this.game.config.width + enemy.displayWidth ||
+        enemy.y < -enemy.displayHeight * 4 ||
+        enemy.y > this.game.config.height + enemy.displayHeight
       ) {
         if (enemy) {
           if (enemy.onDestroy !== undefined) {
@@ -236,10 +236,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth
-        || laser.x > this.game.config.width + laser.displayWidth
-        || laser.y < -laser.displayHeight * 4
-        || laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -253,10 +253,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth
-        || laser.x > this.game.config.width + laser.displayWidth
-        || laser.y < -laser.displayHeight * 4
-        || laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -289,7 +289,7 @@ class MainScene extends Phaser.Scene {
       } else {
         this.player.setData(
           'timerShootTick',
-          this.player.getData('timerShootDelay') - 1,
+          this.player.getData('timerShootDelay') - 1
         );
         this.player.setData('isShooting', false);
       }

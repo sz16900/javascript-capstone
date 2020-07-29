@@ -2,9 +2,9 @@ import Phaser from 'phaser';
 import Entity from './Entities';
 import EnemyLaser from './EnemyLaser';
 
-class GunShip extends Entity {
+class UfoShip extends Entity {
   constructor(scene, x, y) {
-    super(scene, x, y, 'sprEnemy0', 'GunShip');
+    super(scene, x, y, 'ufo', 'UfoShip');
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
     // Create an Event
@@ -19,7 +19,7 @@ class GunShip extends Entity {
       loop: true,
     });
 
-    this.play('sprEnemy0');
+    this.play('ufo');
   }
 
   onDestroy() {
@@ -30,4 +30,4 @@ class GunShip extends Entity {
     }
   }
 }
-export default GunShip;
+export default UfoShip;
