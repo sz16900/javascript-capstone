@@ -1,5 +1,4 @@
-const baseUrl =
-  'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 //   I dont know where else to store it
 const apiKey = 'Rvu659tXzZpvrPD1ApIN';
 const url = `${baseUrl}games/${apiKey}/scores/`;
@@ -36,7 +35,6 @@ const getScore = async () => {
     throw new Error('Something went wrong with your query.');
   } else {
     const result = await response.json();
-    console.log(result);
     return result;
   }
 };

@@ -1,5 +1,6 @@
-jest.mock('../src/Utils/apiHandler');
 import api from '../src/Utils/apiHandler';
+
+jest.mock('../src/Utils/apiHandler');
 
 it('returns the user of the first user', async () => {
   api.getScore.mockResolvedValue({

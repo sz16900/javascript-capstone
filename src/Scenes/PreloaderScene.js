@@ -94,7 +94,7 @@ export default class PreloaderScene extends Phaser.Scene {
     // Load SFX and other
     this.load.audio(
       'sndBtnDown',
-      '../assets/Menu Effect Time Stretch and Pitch Shift.wav'
+      '../assets/Menu Effect Time Stretch and Pitch Shift.wav',
     );
     this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
     this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');

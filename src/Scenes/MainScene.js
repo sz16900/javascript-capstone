@@ -19,8 +19,8 @@ class MainScene extends Phaser.Scene {
     // Add the starry background
     this.backgrounds = [];
     for (let i = 0; i < 2; i += 1) {
-      const keys = ['starfield', 'nebulae'];
-      const bg = new ScrollingBackground(this, keys[i]);
+      const keyDown = ['starfield', 'nebulae'];
+      const bg = new ScrollingBackground(this, keyDown[i]);
       this.backgrounds.push(bg);
     }
 
@@ -95,10 +95,16 @@ class MainScene extends Phaser.Scene {
     this.player.setScale(1.7);
 
     // Create Key Bindings
-    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    this.keyDown = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.DOWN
+    );
+    this.keyLeft = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.LEFT
+    );
+    this.keyRight = this.input.keyboard.addKey(
+      Phaser.Input.Keyboard.KeyCodes.RIGHT
+    );
     this.keySpace = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
@@ -148,13 +154,18 @@ class MainScene extends Phaser.Scene {
           this.enemies,
           (playerLaser, enemy) => {
             if (enemy) {
+              if (enemy instanceof TurtleShip) {
+                this.score += 100;
+              } else if (enemy instanceof SaboteurShip) {
+                this.score += 75;
+              }
               if (enemy.onDestroy !== undefined) {
                 this.score += 50;
-                this.leaderBoard.setText(`SCORE: ${this.score}`);
                 enemy.onDestroy();
               }
               enemy.explode(true, 'sprExplosion');
               playerLaser.destroy();
+              this.leaderBoard.setText(`SCORE: ${this.score}`);
             }
           }
         );
@@ -269,14 +280,14 @@ class MainScene extends Phaser.Scene {
     // Movement code
     if (!this.player.getData('isDead')) {
       this.player.update();
-      if (this.keyW.isDown) {
+      if (this.keyUp.isDown) {
         this.player.moveUp();
-      } else if (this.keyS.isDown) {
+      } else if (this.keyDown.isDown) {
         this.player.moveDown();
       }
-      if (this.keyA.isDown) {
+      if (this.keyLeft.isDown) {
         this.player.moveLeft();
-      } else if (this.keyD.isDown) {
+      } else if (this.keyRight.isDown) {
         this.player.moveRight();
       }
 

@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import api from '../Utils/apiHandler';
 
 export default class MainMenuScene extends Phaser.Scene {
   constructor() {
@@ -21,7 +20,7 @@ export default class MainMenuScene extends Phaser.Scene {
         128,
         'arcade',
         'SPACETIME SHOOTER',
-        38
+        38,
       )
       .setTint(0xffffff)
       .setOrigin(0.5);
@@ -32,7 +31,7 @@ export default class MainMenuScene extends Phaser.Scene {
         428,
         'arcade',
         'PRESS ENTER TO START!',
-        28
+        28,
       )
       .setTint(0xffffff)
       .setOrigin(0.5);
@@ -49,7 +48,7 @@ export default class MainMenuScene extends Phaser.Scene {
 
     // Key Bindings
     this.keyENTER = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
+      Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
   }
 
