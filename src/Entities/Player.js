@@ -37,7 +37,7 @@ class Player extends Entity {
       delay: 1000,
       callback() {
         // Stops the music
-        this.scene.music.stop();
+        this.scene.sfx.bg.stop();
         // Start the next scene
         this.scene.scene.start('Score');
       },
