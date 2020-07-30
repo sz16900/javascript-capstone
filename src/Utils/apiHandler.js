@@ -1,4 +1,7 @@
-const baseUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
+import 'regenerator-runtime';
+
+const baseUrl =
+  'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';
 //   I dont know where else to store it
 const apiKey = 'Rvu659tXzZpvrPD1ApIN';
 const url = `${baseUrl}games/${apiKey}/scores/`;
