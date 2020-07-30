@@ -12,6 +12,11 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    // Add music background
+    this.music = this.sound.add('sndBgMain', 1, true);
+    this.music.loop = true;
+    this.music.play();
+
     // Add the starry background
     this.backgrounds = [];
     for (let i = 0; i < 2; i += 1) {
