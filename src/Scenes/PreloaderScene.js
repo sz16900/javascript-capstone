@@ -67,9 +67,9 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     // update file progress text
-    this.load.on('fileprogress', (file) => {
-      assetText.setText(`Loading asset: ${file.key}`);
-    });
+    // this.load.on('fileprogress', (file) => {
+    //   assetText.setText(`Loading asset: ${file.key}`);
+    // });
 
     // remove progress bar when complete
     this.load.on('complete', () => {
