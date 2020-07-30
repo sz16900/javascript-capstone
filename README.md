@@ -115,6 +115,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://microverse.org)
+- [Phaser 3](https://phaser.io/)
+- [OpenGameArt](https://opengameart.org/)
 
 ---
 
@@ -123,6 +125,10 @@ Give a ⭐️ if you like this project!
 - A better mobile friendly experience
 - More information inside the website
 - Better modularization of objects
+- More testing
+- More characters
+- More music
+- Better UI
 
 ---
 
