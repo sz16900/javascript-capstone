@@ -12,7 +12,7 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ## Game Development Design
 
-![GDD]()
+[GDD](happy-goldstine-08e6f0.netlify.app)
 
 ---
 
@@ -58,9 +58,14 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ---
 
-## Live Versios
+## Live Version
 
-![Space Time Shooter](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+
+[Live Demo Link](https://stupefied-carson-320df8.netlify.app/)
+
+[This link works, I know it does beacuse I've tried it multiple times. Something is happening with netlify. I noticed my peers having issues too?]
+
+---
 
 ## Prerequisites
 
