@@ -85,53 +85,49 @@ export default class PreloaderScene extends Phaser.Scene {
     this.timedEvent = this.time.delayedCall(6000, this.ready, [], this);
 
     // Load Fonts
-    this.load.bitmapFont(
-      'arcade',
-      '../assets/arcade.png',
-      '../assets/arcade.xml'
-    );
+    this.load.bitmapFont('arcade', 'assets/arcade.png', 'assets/arcade.xml');
 
     // -> Main Images
-    this.load.image('nebulae', '../assets/nebulae.png');
-    this.load.image('starfield', '../assets/starfield.png');
-    this.load.image('kbCommands', '../assets/keyboardCommands.png');
+    this.load.image('nebulae', 'assets/nebulae.png');
+    this.load.image('starfield', 'assets/starfield.png');
+    this.load.image('kbCommands', 'assets/keyboardCommands.png');
 
     // Load SFX and other
 
-    this.load.audio('sndBgMain', '../assets/Operator Loop.wav');
-    this.load.audio('sndBgMenu', '../assets/Tech Lab (Soft Hum) verb.mp3');
-    this.load.audio('sndPlayerMove', '../assets/rocket_launch.wav');
-    this.load.audio('sndExplode0', '../assets/explosion1.wav');
-    this.load.audio('sndExplode1', '../assets/explosion2.wav');
-    this.load.audio('sndExplode2', '../assets/explosion3.wav');
-    this.load.audio('sndExplode3', '../assets/explosion4.wav');
-    this.load.audio('sndLaser', '../assets/weaponfire7.wav');
+    this.load.audio('sndBgMain', 'assets/Operator Loop.wav');
+    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3');
+    this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav');
+    this.load.audio('sndExplode0', 'assets/explosion1.wav');
+    this.load.audio('sndExplode1', 'assets/explosion2.wav');
+    this.load.audio('sndExplode2', 'assets/explosion3.wav');
+    this.load.audio('sndExplode3', 'assets/explosion4.wav');
+    this.load.audio('sndLaser', 'assets/weaponfire7.wav');
 
     // Load Sprites for anims
-    this.load.spritesheet('sprExplosion', '../assets/EXPLOSION_ANIMATION.png', {
+    this.load.spritesheet('sprExplosion', 'assets/EXPLOSION_ANIMATION.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet('sprExplosionPlayer', '../assets/sprExplosion.png', {
+    this.load.spritesheet('sprExplosionPlayer', 'assets/sprExplosion.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet('sprExplosionLaser', '../assets/Explosion.png', {
+    this.load.spritesheet('sprExplosionLaser', 'assets/Explosion.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet('ufo', '../assets/UFO.png', {
+    this.load.spritesheet('ufo', 'assets/UFO.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.image('turtle', '../assets/Turtle.png');
-    this.load.spritesheet('saboteur', '../assets/Saboteur.png', {
+    this.load.image('turtle', 'assets/Turtle.png');
+    this.load.spritesheet('saboteur', 'assets/Saboteur.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.image('sprLaserEnemy0', '../assets/fire15.png');
-    this.load.image('sprLaserPlayer', '../assets/fire07.png');
-    this.load.spritesheet('sprPlayer', '../assets/Ligher.png', {
+    this.load.image('sprLaserEnemy0', 'assets/fire15.png');
+    this.load.image('sprLaserPlayer', 'assets/fire07.png');
+    this.load.spritesheet('sprPlayer', 'assets/Ligher.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
