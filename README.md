@@ -14,12 +14,14 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ![GDD](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
 
---- 
+---
 
 ## Fahrenheit
+
 ![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
 
 ## Celsius
+
 ![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa2.png?raw=true)
 
 ---
@@ -45,6 +47,7 @@ This is a shooter style video game: the game does not finish untl the player's s
 - Javascript
 - webpack
 - Phaser 3
+
 ---
 
 ## Live Versios
