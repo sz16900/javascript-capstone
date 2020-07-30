@@ -1,57 +1,117 @@
-# Phaser 3 Webpack Project Template
+# [Javascript Project: Shooter-Game]
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors object oriented programming priciple by following an establised phramework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
 
-Loading images via JavaScript module `import` is also supported.
+---
 
-## Requirements
+## How to Play
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+This is a shooter style video game: the game does not finish untl the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting. Can you make it to the top 5 on the list?
 
-## Available Commands
+---
 
-| Command         | Description                                                                     |
-| --------------- | ------------------------------------------------------------------------------- |
-| `npm install`   | Install project dependencies                                                    |
-| `npm start`     | Build project and open web server running project                               |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+## Game Development Design
 
-## Writing Code
+![GDD](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
+--- 
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
+## Fahrenheit
+![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
 
-## Customizing Template
+## Celsius
+![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa2.png?raw=true)
 
-### Babel
+---
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
+## Features
 
-```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
-```
+- Extra Enemies
+- Over 5 Different Sound Effects
+- Paralaxing Backgrounds
+- API
+- Background Music
+- Retro Style feel with Added Graphics
 
-### Webpack
+---
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
+## Built With
 
-## Deploying Code
+- HTML5
+- CSS3
+- Font Awesome
+- Google Fonts
+- W3 Validators
+- Javascript
+- webpack
+- Phaser 3
+---
 
-After you run the `npm run build` command, your code will be built into a single bundle located at
-`dist/bundle.min.js` along with any other assets you project depended.
+## Live Versios
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`),
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+![Space Time Shooter](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+
+## Prerequisites
+
+- Node.js
+- Web Browser
+- CLI
+- IDE
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+- Clone the project unto your local machine
+- `cd` into the project directory
+- on the root folder please type: npm run start:dev
+- on your browser, make sure you point to the right address (i.e: http://localhost:8080/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! Start by:
+
+- Forking the project
+- Cloning the project to your local machine
+- `cd` into the project directory
+- Run `git checkout -b your-branch-name`
+- Make your contributions
+- Push your branch up to your forked repository
+- Open a Pull Request with a detailed description to the development branch of the original project for a review
+
+---
+
+## Authors
+
+👤 **Seth Zea**
+
+- Github: [@sz16900](https://github.com/sz16900)
+- Twitter: [@_sethzea_](https://twitter.com/_sethzea_)
+- Linkedin: [linkedin](https://www.linkedin.com/in/seth-zea-9481a8148/)
+- Email: zea.seth@gmail.com
+
+---
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Microverse](https://microverse.org)
+
+---
+
+## Future Features
+
+- A better mobile friendly experience
+- More information inside the website
+- Better modularization of objects
+
+---
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
+
+---

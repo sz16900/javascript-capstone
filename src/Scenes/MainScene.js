@@ -4,6 +4,7 @@ import UfoShip from '../Entities/UfoShip';
 import TurtleShip from '../Entities/TurtleShip';
 import SaboteurShip from '../Entities/SaboteurShip';
 import LightningShip from '../Entities/LightningShip';
+import NinjaShip from '../Entities/NinjaShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
 class MainScene extends Phaser.Scene {
@@ -49,6 +50,13 @@ class MainScene extends Phaser.Scene {
     this.anims.create({
       key: 'lightning',
       frames: this.anims.generateFrameNumbers('lightning'),
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'ninja',
+      frames: this.anims.generateFrameNumbers('ninja'),
       frameRate: 20,
       repeat: -1,
     });
@@ -128,14 +136,13 @@ class MainScene extends Phaser.Scene {
       callback() {
         // This anonymous function spawns the enemies depending...
         let enemy = null;
-
-        if (Phaser.Math.Between(0, 10) >= 3) {
-          enemy = new UfoShip(
+        if (Phaser.Math.Between(0, 10) === 3) {
+          enemy = new SaboteurShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0,
           );
-        } else if (Phaser.Math.Between(0, 10) >= 5) {
+        } else if (Phaser.Math.Between(0, 10) === 5) {
           if (this.getEnemiesByType('TurtleShip').length < 5) {
             enemy = new TurtleShip(
               this,
@@ -143,14 +150,20 @@ class MainScene extends Phaser.Scene {
               0,
             );
           }
-        } else if (Phaser.Math.Between(0, 10) >= 4) {
+        } else if (Phaser.Math.Between(0, 10) === 4) {
           enemy = new LightningShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0,
           );
+        } else if (Phaser.Math.Between(0, 10) === 2) {
+          enemy = new NinjaShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0,
+          );
         } else {
-          enemy = new SaboteurShip(
+          enemy = new UfoShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
             0,
@@ -174,6 +187,8 @@ class MainScene extends Phaser.Scene {
                 this.score += 75;
               } else if (enemy instanceof LightningShip) {
                 this.score += 125;
+              } else if (enemy instanceof NinjaShip) {
+                this.score += 150;
               }
               if (enemy.onDestroy !== undefined) {
                 this.score += 50;
@@ -230,13 +245,6 @@ class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
-
-    // this.input.keyboard('keydown-P', (e) => {
-    //   // . Change Scene here
-    //   console.log('aaa');
-    //   this.scene.launch('Pause');
-    //   this.scene.pause();
-    // });
   }
 
   // create Frustum Culling for performance

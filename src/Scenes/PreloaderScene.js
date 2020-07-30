@@ -145,6 +145,10 @@ export default class PreloaderScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.spritesheet('ninja', 'assets/Ninja.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
     this.load.image('sprLaserEnemy0', 'assets/fire15.png');
     this.load.image('sprLaserPlayer', 'assets/fire07.png');
     this.load.spritesheet('sprPlayer', 'assets/Ligher.png', {
