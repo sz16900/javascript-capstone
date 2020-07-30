@@ -12,7 +12,7 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ## Game Development Design
 
-[GDD](happy-goldstine-08e6f0.netlify.app)
+[GDD](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/GDD.md)
 
 ---
 
