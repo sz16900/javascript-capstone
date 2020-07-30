@@ -12,17 +12,25 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ## Game Development Design
 
-![GDD](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+![GDD]()
 
 ---
 
-## Fahrenheit
+### Menu
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+![Menu](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/menu.png?raw=true)
 
-## Celsius
+### Play
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa2.png?raw=true)
+![Play](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/play.png?raw=true)
+
+### Score
+
+![Score](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/score.png?raw=true)
+
+### LeaderBoard
+
+![LeaderBoard](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/leader.png?raw=true)
 
 ---
 
