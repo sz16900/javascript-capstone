@@ -65,6 +65,10 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 [This link works, I know it does beacuse I've tried it multiple times. Something is happening with netlify. I noticed my peers having issues too?]
 
+or 
+
+[reload a couple of tiimes]
+
 ---
 
 ## Prerequisites
