@@ -7,13 +7,19 @@ export default class MainMenuScene extends Phaser.Scene {
 
   create() {
     // Add music background
-    // this.music = this.sound.add('sndBgMenu');
-    // this.music.loop = true;
-    // this.music.play();
+    this.music = this.sound.add('sndBgMenu');
+    this.music.loop = true;
+    this.music.play();
 
     // Add static background
     this.add.sprite(0, 0, 'starfield');
-    // this.add.sprite(100, 100, 'kbCommands');
+    this.add
+      .sprite(
+        this.game.config.width * 0.5,
+        this.game.config.height * 0.5,
+        'kbCommands'
+      )
+      .setScale(0.4);
 
     this.add
       .bitmapText(

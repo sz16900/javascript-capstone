@@ -8,7 +8,6 @@ import MainMenuScene from './Scenes/MainMenuScene';
 import MainScene from './Scenes/MainScene';
 import LeaderBoardScene from './Scenes/LeaderBoardScene';
 import ScoreScene from './Scenes/ScoreScene';
-import GameOverScene from './Scenes/GameOverScene';
 import PauseScene from './Scenes/PauseScene';
 
 class Game extends Phaser.Game {
@@ -21,7 +20,6 @@ class Game extends Phaser.Game {
     this.scene.add('Main', MainScene);
     this.scene.add('LeaderBoard', LeaderBoardScene);
     this.scene.add('Score', ScoreScene);
-    this.scene.add('GameOver', GameOverScene);
     this.scene.add('Pause', PauseScene);
     // This thing should be called maybe when the play buttin is triggered
     this.scene.start('Boot');

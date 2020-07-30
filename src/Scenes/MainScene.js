@@ -3,6 +3,7 @@ import Player from '../Entities/Player';
 import UfoShip from '../Entities/UfoShip';
 import TurtleShip from '../Entities/TurtleShip';
 import SaboteurShip from '../Entities/SaboteurShip';
+import LightningShip from '../Entities/LightningShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
 
 class MainScene extends Phaser.Scene {
@@ -12,9 +13,9 @@ class MainScene extends Phaser.Scene {
 
   create() {
     // Add music background
-    // this.music = this.sound.add('sndBgMain', 1, true);
-    // this.music.loop = true;
-    // this.music.play();
+    this.music = this.sound.add('sndBgMain', 1, true);
+    this.music.loop = true;
+    this.music.play();
 
     // Add the starry background
     this.backgrounds = [];
@@ -41,6 +42,13 @@ class MainScene extends Phaser.Scene {
     this.anims.create({
       key: 'saboteur',
       frames: this.anims.generateFrameNumbers('saboteur'),
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'lightning',
+      frames: this.anims.generateFrameNumbers('lightning'),
       frameRate: 20,
       repeat: -1,
     });
@@ -108,9 +116,6 @@ class MainScene extends Phaser.Scene {
     this.keySpace = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.SPACE
     );
-    // this.keyEsc = this.input.keyboard.addKey(
-    //   Phaser.Input.Keyboard.KeyCodes.ESC
-    // );
 
     // Add Enemy / Groups
     this.enemies = this.add.group();
@@ -138,6 +143,12 @@ class MainScene extends Phaser.Scene {
               0
             );
           }
+        } else if (Phaser.Math.Between(0, 10) >= 4) {
+          enemy = new LightningShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0
+          );
         } else {
           enemy = new SaboteurShip(
             this,
@@ -161,6 +172,8 @@ class MainScene extends Phaser.Scene {
                 this.score += 100;
               } else if (enemy instanceof SaboteurShip) {
                 this.score += 75;
+              } else if (enemy instanceof LightningShip) {
+                this.score += 125;
               }
               if (enemy.onDestroy !== undefined) {
                 this.score += 50;
