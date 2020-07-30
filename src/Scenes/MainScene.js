@@ -85,10 +85,7 @@ class MainScene extends Phaser.Scene {
         this.sound.add('sndExplode3'),
       ],
       laser: this.sound.add('sndLaser'),
-      bg: this.sound.add('sndBgMain'),
     };
-
-    this.sfx.bg.play();
 
     // Create the Player
     this.player = new Player(
