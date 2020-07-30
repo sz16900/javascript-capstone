@@ -95,7 +95,7 @@ export default class PreloaderScene extends Phaser.Scene {
     // Load SFX and other
 
     this.load.audio('sndBgMain', 'assets/Operator Loop.wav');
-    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3');
+    // this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3');
     this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav');
     this.load.audio('sndExplode0', 'assets/explosion1.wav');
     this.load.audio('sndExplode1', 'assets/explosion2.wav');
