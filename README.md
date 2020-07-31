@@ -1,12 +1,12 @@
 # [Javascript Project: Shooter-Game]
 
-In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors object oriented programming priciple by following an establised phramework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
+In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors object oriented programming priciples by following an established framework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
 
 ---
 
 ## How to Play
 
-This is a shooter style video game: the game does not finish untl the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting. Can you make it to the top 5 on the list?
+This is a shooter style video game: the game does not finish until the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting. Can you make it to the top 5 on the list?
 
 ---
 
@@ -62,7 +62,7 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 [Live Demo Link](https://friendly-haibt-95e048.netlify.app/)
 
-[This link works, I know it does beacuse I've tried it multiple times. Something is happening with netlify. I noticed my peers having issues too?]
+[This link works, I know it does beacuse I've tried it multiple times. Something is happening with Netlify. I noticed my peers having issues too?]
 
 or
 
@@ -94,7 +94,7 @@ To test the application:
 - `cd` into the project directory
 - on the root folder please type: npm test
 - wait a second for jest to do its thing
-- read and review and the output
+- read and review the output
 
 ## 🤝 Contributing
 
@@ -142,6 +142,7 @@ Give a ⭐️ if you like this project!
 - More characters
 - More music
 - Better UI
+- A fully functional Pause Menu
 
 ---
 
