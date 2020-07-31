@@ -6,6 +6,7 @@ import SaboteurShip from '../Entities/SaboteurShip';
 import LightningShip from '../Entities/LightningShip';
 import NinjaShip from '../Entities/NinjaShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
+import enemyPoints from '../Scenes/helpers/enemyPoints';
 
 class MainScene extends Phaser.Scene {
   constructor() {
@@ -181,17 +182,8 @@ class MainScene extends Phaser.Scene {
           this.enemies,
           (playerLaser, enemy) => {
             if (enemy) {
-              if (enemy instanceof TurtleShip) {
-                this.score += 100;
-              } else if (enemy instanceof SaboteurShip) {
-                this.score += 75;
-              } else if (enemy instanceof LightningShip) {
-                this.score += 125;
-              } else if (enemy instanceof NinjaShip) {
-                this.score += 150;
-              }
+              this.score += enemyPoints(enemy.shipName);
               if (enemy.onDestroy !== undefined) {
-                this.score += 50;
                 enemy.onDestroy();
               }
               enemy.explode(true, 'sprExplosion');

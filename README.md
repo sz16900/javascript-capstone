@@ -60,12 +60,11 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ## Live Version
 
-
 [Live Demo Link](https://friendly-haibt-95e048.netlify.app/)
 
 [This link works, I know it does beacuse I've tried it multiple times. Something is happening with netlify. I noticed my peers having issues too?]
 
-or 
+or
 
 [reload a couple of times]
 
@@ -84,8 +83,18 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the project unto your local machine
 - `cd` into the project directory
-- on the root folder please type: npm run start:dev
+- on the root folder please type: npm run start
 - on your browser, make sure you point to the right address (i.e: http://localhost:8080/)
+
+## Testing
+
+To test the application:
+
+- Clone the project unto your local machine
+- `cd` into the project directory
+- on the root folder please type: npm test
+- wait a second for jest to do its thing
+- read and review and the output
 
 ## 🤝 Contributing
 
