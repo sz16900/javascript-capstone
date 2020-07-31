@@ -14,14 +14,14 @@ class TurtleShip extends Entity {
     this.state = this.states.MOVE_DOWN;
   }
 
-  update() {
+  update = () => {
     if (!this.getData('isDead') && this.scene.player) {
       if (
         Phaser.Math.Distance.Between(
           this.x,
           this.y,
           this.scene.player.x,
-          this.scene.player.y,
+          this.scene.player.y
         ) < 320
       ) {
         this.state = this.states.CHASE;
@@ -43,7 +43,7 @@ class TurtleShip extends Entity {
         }
       }
     }
-  }
+  };
 }
 
 export default TurtleShip;

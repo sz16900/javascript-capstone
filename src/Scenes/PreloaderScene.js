@@ -5,11 +5,11 @@ export default class PreloaderScene extends Phaser.Scene {
     super('Preloader');
   }
 
-  init() {
+  init = () => {
     this.readyCount = 0;
-  }
+  };
 
-  preload() {
+  preload = () => {
     // display progress bar
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
@@ -155,13 +155,13 @@ export default class PreloaderScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-  }
+  };
 
-  ready() {
+  ready = () => {
     this.scene.start('MainMenu');
     this.readyCount += 1;
     if (this.readyCount === 2) {
       this.scene.start('MainMenu');
     }
-  }
+  };
 }

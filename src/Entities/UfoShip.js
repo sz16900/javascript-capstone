@@ -22,12 +22,12 @@ class UfoShip extends Entity {
     this.play('ufo');
   }
 
-  onDestroy() {
+  onDestroy = () => {
     if (this.shootTimer !== undefined) {
       if (this.shootTimer) {
         this.shootTimer.remove(false);
       }
     }
-  }
+  };
 }
 export default UfoShip;
