@@ -4,10 +4,10 @@
   "description": "This project consist on building a video game using JavaScript and the game engine Phaser to demonstrate mastery of Javascript. webpack, ES6 classes, testing with Jest, project building, and live deployment.",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest",
     "start:dev": "webpack-dev-server",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "test": "jest",
+    "watch": "jest --watch *.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/sz16900/shooter-game-capstone#readme",
   "devDependencies": {
     "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.7.1",
     "autoprefixer": "^9.8.0",
     "babel-loader": "^8.0.6",
