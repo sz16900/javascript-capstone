@@ -14,6 +14,10 @@ Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting.
 
 This is a shooter style video game: the game does not finish until the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Can you make it to the top 5 on the list?
 
+### Instructions:
+
+Please follow the instructions provided in the game's User Interface. No extra controls are needed!
+
 ---
 
 ## Game Development Design
