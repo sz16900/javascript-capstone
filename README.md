@@ -70,7 +70,7 @@ Please follow the instructions provided in the game's User Interface. No extra c
 
 ## Live Version
 
-[Live Demo Link](https://friendly-haibt-95e048.netlify.app/)
+[Live Demo Link](https://stupefied-northcutt-fcf66b.netlify.app/)
 
 [This link works, I know it does beacuse I've tried it multiple times. Something is happening with Netlify. I noticed my peers having issues too?]
 
