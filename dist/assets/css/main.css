@@ -1,0 +1,80 @@
+body {
+  background-color: #000 !important;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@font-face {
+  font-family: 'arcade';
+  src: url('ARCADE_N.TTF') format('truetype');
+}
+
+.inputwrap {
+  position: absolute;
+  top: 480px;
+  left: 42.5%;
+}
+
+.hidden {
+  display: none;
+}
+
+.inputwrap textarea {
+  resize: none;
+  border: none;
+  color: #4f4f4f;
+  background: none;
+  outline: none;
+  position: relative;
+  font: 16px 'arcade', 'SeanRegular', Courier New, Courier6, monospace;
+  letter-spacing: 1px;
+  font-size: 2em;
+  width: 6em;
+  left: 32px;
+}
+
+.inputwrap textarea:focus {
+  border-bottom: 1px dashed #000;
+  -webkit-transition: border 0.3s ease-in;
+  -moz-transition: border 0.3s ease-in;
+  -o-transition: border 0.3s ease-in;
+  transition: border 0.3s ease-in;
+}
+
+/* Spinning wheel courtesy of:
+https://dev.to/wangonya/displaying-a-css-spinner-on-ajax-calls-with-fetch-api-4ndo */
+
+#spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #41f2e2;
+  border-radius: 100%;
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 10px;
+  right: 0;
+
+  /* margin: auto; */
+
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#spinner.show {
+  visibility: visible;
+}
