@@ -12,17 +12,25 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ## Game Development Design
 
-![GDD](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+[GDD](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/GDD.md)
 
 ---
 
-## Fahrenheit
+### Menu
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+![Menu](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/menu.png?raw=true)
 
-## Celsius
+### Play
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa2.png?raw=true)
+![Play](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/play.png?raw=true)
+
+### Score
+
+![Score](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/score.png?raw=true)
+
+### LeaderBoard
+
+![LeaderBoard](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/leader.png?raw=true)
 
 ---
 
@@ -50,9 +58,18 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ---
 
-## Live Versios
+## Live Version
 
-![Space Time Shooter](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+
+[Live Demo Link](https://friendly-haibt-95e048.netlify.app/)
+
+[This link works, I know it does beacuse I've tried it multiple times. Something is happening with netlify. I noticed my peers having issues too?]
+
+or 
+
+[reload a couple of times]
+
+---
 
 ## Prerequisites
 
@@ -102,6 +119,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://microverse.org)
+- [Phaser 3](https://phaser.io/)
+- [OpenGameArt](https://opengameart.org/)
 
 ---
 
@@ -110,6 +129,10 @@ Give a ⭐️ if you like this project!
 - A better mobile friendly experience
 - More information inside the website
 - Better modularization of objects
+- More testing
+- More characters
+- More music
+- Better UI
 
 ---
 
