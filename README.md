@@ -1,6 +1,6 @@
 # [Javascript Project: Shooter-Game]
 
-In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors object oriented programming priciples by following an established framework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
+In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors, object oriented programming priciples by following an established framework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
 
 ---
 
