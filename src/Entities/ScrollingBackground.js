@@ -13,7 +13,7 @@ class ScrollingBackground {
       0,
       config.width,
       config.height,
-      this.key
+      this.key,
     );
     this.stars.setOrigin(0, 0);
     this.stars.setScrollFactor(0);

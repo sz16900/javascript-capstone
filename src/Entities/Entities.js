@@ -37,7 +37,7 @@ class Entity extends Phaser.GameObjects.Sprite {
             this.setVisible(false);
           }
         },
-        this
+        this,
       );
       this.setData('isDead', true);
     }

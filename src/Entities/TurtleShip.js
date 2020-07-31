@@ -23,7 +23,7 @@ class TurtleShip extends Entity {
           this.x,
           this.y,
           this.scene.player.x,
-          this.scene.player.y
+          this.scene.player.y,
         ) < 320
       ) {
         this.state = this.states.CHASE;

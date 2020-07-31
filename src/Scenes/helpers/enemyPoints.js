@@ -7,17 +7,20 @@
 const enemyPoints = (enemy) => {
   if (enemy === 'TURTLE') {
     return 100;
-  } else if (enemy === 'SABOTEUR') {
+  }
+  if (enemy === 'SABOTEUR') {
     return 75;
-  } else if (enemy === 'LIGHTNING') {
+  }
+  if (enemy === 'LIGHTNING') {
     return 125;
-  } else if (enemy === 'NINJA') {
+  }
+  if (enemy === 'NINJA') {
     return 150;
-  } else if (enemy === 'UFO') {
+  }
+  if (enemy === 'UFO') {
     return 50;
   }
   return 0;
-  console.log(enemy);
 };
 
 export default enemyPoints;

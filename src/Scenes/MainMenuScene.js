@@ -17,7 +17,7 @@ export default class MainMenuScene extends Phaser.Scene {
       .sprite(
         this.game.config.width * 0.5,
         this.game.config.height * 0.5,
-        'kbCommands'
+        'kbCommands',
       )
       .setScale(0.4);
 
@@ -27,7 +27,7 @@ export default class MainMenuScene extends Phaser.Scene {
         128,
         'arcade',
         'SPACETIME SHOOTER',
-        38
+        38,
       )
       .setTint(0xffffff)
       .setOrigin(0.5);
@@ -38,7 +38,7 @@ export default class MainMenuScene extends Phaser.Scene {
         428,
         'arcade',
         'PRESS ENTER TO START!',
-        28
+        28,
       )
       .setTint(0xffffff)
       .setOrigin(0.5);
@@ -55,7 +55,7 @@ export default class MainMenuScene extends Phaser.Scene {
 
     // Key Bindings
     this.keyENTER = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
+      Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
   };
 

@@ -31,7 +31,7 @@ export default class GameOverScene extends Phaser.Scene {
                 100,
                 60 + 50 * i,
                 'arcade',
-                ` ${i}    ${data.result[i].user}     ${data.result[i].score}`
+                ` ${i}    ${data.result[i].user}     ${data.result[i].score}`,
               )
               .setTint(0xffffff);
           }
@@ -50,7 +50,7 @@ export default class GameOverScene extends Phaser.Scene {
 
     // Key Bindings
     this.keyENTER = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.ENTER
+      Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
   };
 
