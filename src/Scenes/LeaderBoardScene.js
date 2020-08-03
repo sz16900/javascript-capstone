@@ -6,7 +6,7 @@ export default class GameOverScene extends Phaser.Scene {
     super({ key: 'LeaderBoard' });
   }
 
-  create() {
+  create = () => {
     document.getElementById('spinner').classList.remove('hidden');
 
     setTimeout(() => {
@@ -52,12 +52,12 @@ export default class GameOverScene extends Phaser.Scene {
     this.keyENTER = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
-  }
+  };
 
-  update() {
+  update = () => {
     if (this.keyENTER.isDown) {
       this.sys.game.globals.score = 0;
       this.scene.start('Main');
     }
-  }
+  };
 }

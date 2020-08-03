@@ -4,14 +4,16 @@ import UfoShip from '../Entities/UfoShip';
 import TurtleShip from '../Entities/TurtleShip';
 import SaboteurShip from '../Entities/SaboteurShip';
 import LightningShip from '../Entities/LightningShip';
+import NinjaShip from '../Entities/NinjaShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
+import enemyPoints from './helpers/enemyPoints';
 
 class MainScene extends Phaser.Scene {
   constructor() {
     super({ key: 'Main' });
   }
 
-  create() {
+  create = () => {
     // Add music background
     this.music = this.sound.add('sndBgMain', 1, true);
     this.music.loop = true;
@@ -49,6 +51,13 @@ class MainScene extends Phaser.Scene {
     this.anims.create({
       key: 'lightning',
       frames: this.anims.generateFrameNumbers('lightning'),
+      frameRate: 20,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'ninja',
+      frames: this.anims.generateFrameNumbers('ninja'),
       frameRate: 20,
       repeat: -1,
     });
@@ -97,7 +106,7 @@ class MainScene extends Phaser.Scene {
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      'sprPlayer'
+      'sprPlayer',
     );
     // this resizes the player
     this.player.setScale(1.7);
@@ -105,16 +114,16 @@ class MainScene extends Phaser.Scene {
     // Create Key Bindings
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyDown = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.DOWN
+      Phaser.Input.Keyboard.KeyCodes.DOWN,
     );
     this.keyLeft = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.LEFT
+      Phaser.Input.Keyboard.KeyCodes.LEFT,
     );
     this.keyRight = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.RIGHT
+      Phaser.Input.Keyboard.KeyCodes.RIGHT,
     );
     this.keySpace = this.input.keyboard.addKey(
-      Phaser.Input.Keyboard.KeyCodes.SPACE
+      Phaser.Input.Keyboard.KeyCodes.SPACE,
     );
 
     // Add Enemy / Groups
@@ -128,32 +137,37 @@ class MainScene extends Phaser.Scene {
       callback() {
         // This anonymous function spawns the enemies depending...
         let enemy = null;
-
-        if (Phaser.Math.Between(0, 10) >= 3) {
-          enemy = new UfoShip(
+        if (Phaser.Math.Between(0, 10) === 3) {
+          enemy = new SaboteurShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0
+            0,
           );
-        } else if (Phaser.Math.Between(0, 10) >= 5) {
+        } else if (Phaser.Math.Between(0, 10) === 5) {
           if (this.getEnemiesByType('TurtleShip').length < 5) {
             enemy = new TurtleShip(
               this,
               Phaser.Math.Between(0, this.game.config.width),
-              0
+              0,
             );
           }
-        } else if (Phaser.Math.Between(0, 10) >= 4) {
+        } else if (Phaser.Math.Between(0, 10) === 4) {
           enemy = new LightningShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0
+            0,
           );
-        } else {
-          enemy = new SaboteurShip(
+        } else if (Phaser.Math.Between(0, 10) === 2) {
+          enemy = new NinjaShip(
             this,
             Phaser.Math.Between(0, this.game.config.width),
-            0
+            0,
+          );
+        } else {
+          enemy = new UfoShip(
+            this,
+            Phaser.Math.Between(0, this.game.config.width),
+            0,
           );
         }
 
@@ -168,22 +182,15 @@ class MainScene extends Phaser.Scene {
           this.enemies,
           (playerLaser, enemy) => {
             if (enemy) {
-              if (enemy instanceof TurtleShip) {
-                this.score += 100;
-              } else if (enemy instanceof SaboteurShip) {
-                this.score += 75;
-              } else if (enemy instanceof LightningShip) {
-                this.score += 125;
-              }
+              this.score += enemyPoints(enemy.shipName);
               if (enemy.onDestroy !== undefined) {
-                this.score += 50;
                 enemy.onDestroy();
               }
               enemy.explode(true, 'sprExplosion');
               playerLaser.destroy();
               this.leaderBoard.setText(`SCORE: ${this.score}`);
             }
-          }
+          },
         );
 
         // player destroyed upon collision with laser
@@ -200,7 +207,7 @@ class MainScene extends Phaser.Scene {
               enemyLasers.destroy();
               this.sys.game.globals.score = this.score;
             }
-          }
+          },
         );
 
         // laser destroyed upon collision with laser
@@ -214,7 +221,7 @@ class MainScene extends Phaser.Scene {
               playerLaser.explode(false, 'sprExplosionLaser');
               enemyLaser.destroy();
             }
-          }
+          },
         );
 
         // player destroyed upon overlap with enemy ship
@@ -230,17 +237,10 @@ class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
-
-    // this.input.keyboard('keydown-P', (e) => {
-    //   // . Change Scene here
-    //   console.log('aaa');
-    //   this.scene.launch('Pause');
-    //   this.scene.pause();
-    // });
-  }
+  };
 
   // create Frustum Culling for performance
-  analyzeFrutumCulling() {
+  analyzeFrutumCulling = () => {
     // checks in the array of enemies to delete them
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
@@ -248,10 +248,10 @@ class MainScene extends Phaser.Scene {
       enemy.update();
 
       if (
-        enemy.x < -enemy.displayWidth ||
-        enemy.x > this.game.config.width + enemy.displayWidth ||
-        enemy.y < -enemy.displayHeight * 4 ||
-        enemy.y > this.game.config.height + enemy.displayHeight
+        enemy.x < -enemy.displayWidth
+        || enemy.x > this.game.config.width + enemy.displayWidth
+        || enemy.y < -enemy.displayHeight * 4
+        || enemy.y > this.game.config.height + enemy.displayHeight
       ) {
         if (enemy) {
           if (enemy.onDestroy !== undefined) {
@@ -268,10 +268,10 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth ||
-        laser.x > this.game.config.width + laser.displayWidth ||
-        laser.y < -laser.displayHeight * 4 ||
-        laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
@@ -285,19 +285,19 @@ class MainScene extends Phaser.Scene {
       laser.update();
 
       if (
-        laser.x < -laser.displayWidth ||
-        laser.x > this.game.config.width + laser.displayWidth ||
-        laser.y < -laser.displayHeight * 4 ||
-        laser.y > this.game.config.height + laser.displayHeight
+        laser.x < -laser.displayWidth
+        || laser.x > this.game.config.width + laser.displayWidth
+        || laser.y < -laser.displayHeight * 4
+        || laser.y > this.game.config.height + laser.displayHeight
       ) {
         if (laser) {
           laser.destroy();
         }
       }
     }
-  }
+  };
 
-  update() {
+  update = () => {
     this.player.update();
 
     // Movement code
@@ -319,7 +319,7 @@ class MainScene extends Phaser.Scene {
       } else {
         this.player.setData(
           'timerShootTick',
-          this.player.getData('timerShootDelay') - 1
+          this.player.getData('timerShootDelay') - 1,
         );
         this.player.setData('isShooting', false);
       }
@@ -339,14 +339,7 @@ class MainScene extends Phaser.Scene {
     for (let i = 0; i < this.backgrounds.length; i += 1) {
       this.backgrounds[i].update();
     }
-
-    // if (this.keyEsc.isDown) {
-    //   // if (this.keyEsc.isUp) {
-    //   this.scene.pause('Main');
-    //   this.scene.start('Pause');
-    //   // }
-    // }
-  }
+  };
 
   // Push enemies into array
   getEnemiesByType(type) {

@@ -5,11 +5,11 @@ export default class PreloaderScene extends Phaser.Scene {
     super('Preloader');
   }
 
-  init() {
+  init = () => {
     this.readyCount = 0;
-  }
+  };
 
-  preload() {
+  preload = () => {
     // display progress bar
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
@@ -94,14 +94,30 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // Load SFX and other
 
-    this.load.audio('sndBgMain', 'assets/Operator Loop.wav');
-    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3');
-    this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav');
-    this.load.audio('sndExplode0', 'assets/explosion1.wav');
-    this.load.audio('sndExplode1', 'assets/explosion2.wav');
-    this.load.audio('sndExplode2', 'assets/explosion3.wav');
-    this.load.audio('sndExplode3', 'assets/explosion4.wav');
-    this.load.audio('sndLaser', 'assets/weaponfire7.wav');
+    this.load.audio('sndBgMain', 'assets/Operator Loop.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3', {
+      instances: 2,
+    });
+    this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode0', 'assets/explosion1.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode1', 'assets/explosion2.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode2', 'assets/explosion3.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode3', 'assets/explosion4.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndLaser', 'assets/weaponfire7.wav', {
+      instances: 2,
+    });
 
     // Load Sprites for anims
     this.load.spritesheet('sprExplosion', 'assets/EXPLOSION_ANIMATION.png', {
@@ -129,19 +145,23 @@ export default class PreloaderScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.spritesheet('ninja', 'assets/Ninja.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
     this.load.image('sprLaserEnemy0', 'assets/fire15.png');
     this.load.image('sprLaserPlayer', 'assets/fire07.png');
     this.load.spritesheet('sprPlayer', 'assets/Ligher.png', {
       frameWidth: 32,
       frameHeight: 32,
     });
-  }
+  };
 
-  ready() {
+  ready = () => {
     this.scene.start('MainMenu');
     this.readyCount += 1;
     if (this.readyCount === 2) {
       this.scene.start('MainMenu');
     }
-  }
+  };
 }

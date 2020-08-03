@@ -5,6 +5,7 @@ import EnemyLaser from './EnemyLaser';
 class UfoShip extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, 'ufo', 'UfoShip');
+    this.shipName = 'UFO';
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
     // Create an Event
@@ -22,12 +23,12 @@ class UfoShip extends Entity {
     this.play('ufo');
   }
 
-  onDestroy() {
+  onDestroy = () => {
     if (this.shootTimer !== undefined) {
       if (this.shootTimer) {
         this.shootTimer.remove(false);
       }
     }
-  }
+  };
 }
 export default UfoShip;
