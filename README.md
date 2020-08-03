@@ -72,11 +72,7 @@ Please follow the instructions provided in the game's User Interface. No extra c
 
 [Live Demo Link](https://stupefied-northcutt-fcf66b.netlify.app/)
 
-[This link works, I know it does beacuse I've tried it multiple times. Something is happening with Netlify. I noticed my peers having issues too?]
-
-or
-
-[reload a couple of times]
+[try to reload a couple of times]
 
 ---
 
