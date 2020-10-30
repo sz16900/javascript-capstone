@@ -20,7 +20,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // add logo image
     this.add.image(120, 100, 'logoPhaser').setScale(0.5);
-    this.add.image(690, 60, 'logoZenva').setScale(1.1);
+    this.add.image(690, 60, 'logoZenva').setScale(1.1); 
 
     // Loading text
     const loadingText = this.make.text({
