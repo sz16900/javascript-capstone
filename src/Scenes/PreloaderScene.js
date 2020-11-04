@@ -67,9 +67,9 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     // update file progress text
-    this.load.on('fileprogress', (file) => {
-      assetText.setText(`Loading asset: ${file.key}`);
-    });
+    // this.load.on('fileprogress', (file) => {
+    //   assetText.setText(`Loading asset: ${file.key}`);
+    // });
 
     // remove progress bar when complete
     this.load.on('complete', () => {
@@ -94,14 +94,30 @@ export default class PreloaderScene extends Phaser.Scene {
 
     // Load SFX and other
 
-    this.load.audio('sndBgMain', 'assets/Operator Loop.wav');
-    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3');
-    this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav');
-    this.load.audio('sndExplode0', 'assets/explosion1.wav');
-    this.load.audio('sndExplode1', 'assets/explosion2.wav');
-    this.load.audio('sndExplode2', 'assets/explosion3.wav');
-    this.load.audio('sndExplode3', 'assets/explosion4.wav');
-    this.load.audio('sndLaser', 'assets/weaponfire7.wav');
+    this.load.audio('sndBgMain', 'assets/Operator Loop.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndBgMenu', 'assets/Tech Lab (Soft Hum) verb.mp3', {
+      instances: 2,
+    });
+    this.load.audio('sndPlayerMove', 'assets/rocket_launch.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode0', 'assets/explosion1.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode1', 'assets/explosion2.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode2', 'assets/explosion3.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndExplode3', 'assets/explosion4.wav', {
+      instances: 2,
+    });
+    this.load.audio('sndLaser', 'assets/weaponfire7.wav', {
+      instances: 2,
+    });
 
     // Load Sprites for anims
     this.load.spritesheet('sprExplosion', 'assets/EXPLOSION_ANIMATION.png', {
@@ -126,6 +142,10 @@ export default class PreloaderScene extends Phaser.Scene {
       frameHeight: 32,
     });
     this.load.spritesheet('lightning', 'assets/Lightning.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+    this.load.spritesheet('ninja', 'assets/Ninja.png', {
       frameWidth: 32,
       frameHeight: 32,
     });

@@ -41,7 +41,6 @@
     "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^3.1.0",
-    "regenerator-runtime": "^0.13.7",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "stylelint": "^13.3.3",
@@ -54,6 +53,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "regenerator-runtime": "^0.13.7",
     "phaser": "^3.20.1"
   }
 }
