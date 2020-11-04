@@ -7,7 +7,7 @@ class ScrollingBackground {
     this.createBackground();
   }
 
-  createBackground() {
+  createBackground = () => {
     this.stars = this.scene.add.tileSprite(
       0,
       0,
@@ -17,11 +17,11 @@ class ScrollingBackground {
     );
     this.stars.setOrigin(0, 0);
     this.stars.setScrollFactor(0);
-  }
+  };
 
-  update() {
+  update = () => {
     this.stars.tilePositionY -= 1;
-  }
+  };
 }
 
 export default ScrollingBackground;

@@ -6,7 +6,7 @@ export default class GameOverScene extends Phaser.Scene {
     super({ key: 'Score' });
   }
 
-  create() {
+  create = () => {
     this.element = document.getElementById('playername');
     this.element.classList.remove('hidden');
 
@@ -45,9 +45,9 @@ export default class GameOverScene extends Phaser.Scene {
     this.keyENTER = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.ENTER,
     );
-  }
+  };
 
-  update() {
+  update = () => {
     if (this.keyENTER.isDown) {
       const info = document.getElementById('playername').value;
       if (this.sys.game.globals.score >= 500) {
@@ -56,5 +56,5 @@ export default class GameOverScene extends Phaser.Scene {
       this.element.classList.add('hidden');
       this.scene.start('LeaderBoard');
     }
-  }
+  };
 }

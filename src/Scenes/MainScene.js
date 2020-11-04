@@ -6,13 +6,14 @@ import SaboteurShip from '../Entities/SaboteurShip';
 import LightningShip from '../Entities/LightningShip';
 import NinjaShip from '../Entities/NinjaShip';
 import ScrollingBackground from '../Entities/ScrollingBackground';
+import enemyPoints from './helpers/enemyPoints';
 
 class MainScene extends Phaser.Scene {
   constructor() {
     super({ key: 'Main' });
   }
 
-  create() {
+  create = () => {
     // Add music background
     this.music = this.sound.add('sndBgMain', 1, true);
     this.music.loop = true;
@@ -181,17 +182,8 @@ class MainScene extends Phaser.Scene {
           this.enemies,
           (playerLaser, enemy) => {
             if (enemy) {
-              if (enemy instanceof TurtleShip) {
-                this.score += 100;
-              } else if (enemy instanceof SaboteurShip) {
-                this.score += 75;
-              } else if (enemy instanceof LightningShip) {
-                this.score += 125;
-              } else if (enemy instanceof NinjaShip) {
-                this.score += 150;
-              }
+              this.score += enemyPoints(enemy.shipName);
               if (enemy.onDestroy !== undefined) {
-                this.score += 50;
                 enemy.onDestroy();
               }
               enemy.explode(true, 'sprExplosion');
@@ -245,10 +237,10 @@ class MainScene extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
-  }
+  };
 
   // create Frustum Culling for performance
-  analyzeFrutumCulling() {
+  analyzeFrutumCulling = () => {
     // checks in the array of enemies to delete them
     for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
@@ -303,9 +295,9 @@ class MainScene extends Phaser.Scene {
         }
       }
     }
-  }
+  };
 
-  update() {
+  update = () => {
     this.player.update();
 
     // Movement code
@@ -347,14 +339,7 @@ class MainScene extends Phaser.Scene {
     for (let i = 0; i < this.backgrounds.length; i += 1) {
       this.backgrounds[i].update();
     }
-
-    // if (this.keyEsc.isDown) {
-    //   // if (this.keyEsc.isUp) {
-    //   this.scene.pause('Main');
-    //   this.scene.start('Pause');
-    //   // }
-    // }
-  }
+  };
 
   // Push enemies into array
   getEnemiesByType(type) {

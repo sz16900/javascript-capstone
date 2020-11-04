@@ -15,23 +15,23 @@ class Player extends Entity {
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
   }
 
-  moveUp() {
+  moveUp = () => {
     this.body.velocity.y = -this.getData('speed');
-  }
+  };
 
-  moveDown() {
+  moveDown = () => {
     this.body.velocity.y = this.getData('speed');
-  }
+  };
 
-  moveLeft() {
+  moveLeft = () => {
     this.body.velocity.x = -this.getData('speed');
-  }
+  };
 
-  moveRight() {
+  moveRight = () => {
     this.body.velocity.x = this.getData('speed');
-  }
+  };
 
-  onDestroy() {
+  onDestroy = () => {
     this.scene.time.addEvent({
       // go to game over scene
       delay: 1000,
@@ -44,9 +44,9 @@ class Player extends Entity {
       callbackScope: this,
       loop: false,
     });
-  }
+  };
 
-  update() {
+  update = () => {
     this.body.setVelocity(0, 0);
 
     this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
@@ -65,7 +65,7 @@ class Player extends Entity {
         this.setData('timerShootTick', 0);
       }
     }
-  }
+  };
 }
 
 export default Player;

@@ -5,6 +5,8 @@ class TurtleShip extends Entity {
   constructor(scene, x, y) {
     super(scene, x, y, 'turtle', 'TurtleShip');
 
+    this.shipName = 'TURTLE';
+
     this.body.velocity.y = Phaser.Math.Between(50, 100);
 
     this.states = {
@@ -14,7 +16,7 @@ class TurtleShip extends Entity {
     this.state = this.states.MOVE_DOWN;
   }
 
-  update() {
+  update = () => {
     if (!this.getData('isDead') && this.scene.player) {
       if (
         Phaser.Math.Distance.Between(
@@ -43,7 +45,7 @@ class TurtleShip extends Entity {
         }
       }
     }
-  }
+  };
 }
 
 export default TurtleShip;

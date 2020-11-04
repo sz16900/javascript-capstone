@@ -5,7 +5,7 @@ export default class MainMenuScene extends Phaser.Scene {
     super({ key: 'MainMenu' });
   }
 
-  create() {
+  create = () => {
     // Add music background
     this.music = this.sound.add('sndBgMenu');
     this.music.loop = true;
@@ -57,11 +57,11 @@ export default class MainMenuScene extends Phaser.Scene {
     this.keyENTER = this.input.keyboard.addKey(
       Phaser.Input.Keyboard.KeyCodes.ENTER
     );
-  }
+  };
 
-  update() {
+  update = () => {
     if (this.keyENTER.isDown) {
       this.scene.start('Main');
     }
-  }
+  };
 }

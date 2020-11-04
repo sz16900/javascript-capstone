@@ -1,28 +1,46 @@
-# [Javascript Project: Shooter-Game]
+# [Javascript Capstone Project: Shooter-Game]
 
-In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors object oriented programming priciple by following an establised phramework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
+In this project, I am going to make a shooter style video game with the Javascript engine Phaser 3 in order to demonstrate mastery of bundling javascript modules with webpack, async/await function, handling errors, object oriented programming priciples by following an established framework. This project is completed by Seth Zea, in partial requirements of the Microverse cirriculum.
 
 ---
 
 ## How to Play
 
-This is a shooter style video game: the game does not finish untl the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting. Can you make it to the top 5 on the list?
+### Controls:
+
+Controls are: UP, DOWN, LEFT, RIGHT for movement, and SPACE for shooting.
+
+### Objective:
+
+This is a shooter style video game: the game does not finish until the player's ship is destroyed. The objective of the game is to score as high as posible and to make it up in the ranking system. Your score will not be saved if it is bellow 500. Can you make it to the top 5 on the list?
+
+### Instructions:
+
+Please follow the instructions provided in the game's User Interface. No extra controls are needed!
 
 ---
 
 ## Game Development Design
 
-![GDD](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+[GDD](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/GDD.md)
 
 ---
 
-## Fahrenheit
+### Menu
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+![Menu](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/menu.png?raw=true)
 
-## Celsius
+### Play
 
-![Web](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa2.png?raw=true)
+![Play](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/play.png?raw=true)
+
+### Score
+
+![Score](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/score.png?raw=true)
+
+### LeaderBoard
+
+![LeaderBoard](https://github.com/sz16900/shooter-game-capstone/blob/dev/deploy/assets/leader.png?raw=true)
 
 ---
 
@@ -50,9 +68,13 @@ This is a shooter style video game: the game does not finish untl the player's s
 
 ---
 
-## Live Versios
+## Live Version
 
-![Space Time Shooter](https://github.com/sz16900/weather-app/blob/bootswatch/src/assets/wa1.png?raw=true)
+[Live Demo Link](https://stupefied-northcutt-fcf66b.netlify.app/)
+
+[try to reload a couple of times]
+
+---
 
 ## Prerequisites
 
@@ -67,8 +89,18 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the project unto your local machine
 - `cd` into the project directory
-- on the root folder please type: npm run start:dev
+- on the root folder please type: npm run start
 - on your browser, make sure you point to the right address (i.e: http://localhost:8080/)
+
+## Testing
+
+To test the application:
+
+- Clone the project unto your local machine
+- `cd` into the project directory
+- on the root folder please type: npm test
+- wait a second for jest to do its thing
+- read and review the output
 
 ## 🤝 Contributing
 
@@ -102,6 +134,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://microverse.org)
+- [Phaser 3](https://phaser.io/)
+- [OpenGameArt](https://opengameart.org/)
 
 ---
 
@@ -110,6 +144,11 @@ Give a ⭐️ if you like this project!
 - A better mobile friendly experience
 - More information inside the website
 - Better modularization of objects
+- More testing
+- More characters
+- More music
+- Better UI
+- A fully functional Pause Menu
 
 ---
 
